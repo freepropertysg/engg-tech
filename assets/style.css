@@ -1,0 +1,275 @@
+/* =======================================================
+   Engg-Tech Navbar
+======================================================= */
+
+/* ---------------------------------------
+   Base Styles
+---------------------------------------- */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  padding-top: 64px;
+}
+
+/* ---------------------------------------
+   Navbar
+---------------------------------------- */
+.navbar-custom {
+  background-color: rgba(33, 37, 41, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navbar-brand {
+  color: #ff6a00;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.navbar-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-link:hover {
+  color: #ff6a00;
+  text-decoration: none;
+}
+
+/* Active link highlight box */
+.nav-link.active:not(.navbar-brand)::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -10px;
+  right: -10px;
+  bottom: -6px;
+  border: 2px solid #ffffffaa;
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---------------------------------------
+   Mobile Navbar
+---------------------------------------- */
+@media (max-width: 768px) {
+  .navbar-nav ul {
+    flex-direction: column;
+    background: #212529;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: none;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+  }
+
+  .navbar-nav ul.show {
+    display: flex;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+    font-size: 1.2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #fff;
+    z-index: 10000;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* =======================================================
+   Engg-Tech Navbar End
+======================================================= */
+
+
+/* Blog Page Two Column Layout START */
+@media (min-width: 900px) {
+  .blog-columns {
+    display: flex;
+  }
+}
+
+@media (max-width: 899px) {
+  .blog-columns {
+    display: block;
+  }
+}
+
+/* =======================================================
+   FOOTER STYLES (Extracted from footer.js)
+======================================================= */
+
+.enggtech-footer {
+  background-color: #1e2327;
+  color: #fff;
+  padding: 3rem 1.5rem 2rem;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+
+/* Global footer link default + hover underline */
+.enggtech-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.enggtech-footer a:hover {
+  text-decoration: underline !important;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-heading {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-blog-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ff6a00;
+  color: #ff6a00;
+  text-decoration: none;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-btn:hover {
+  background-color: #ff6a00;
+  color: #fff;
+  text-decoration: none !important;
+}
+
+.footer-divider {
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  max-width: 1200px;
+  border: 0;
+  border-top: 1.5px solid #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-bottom a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.disclaimer {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* =======================================================
+   Social Links + Email Styling (NEW)
+======================================================= */
+
+/* DIRECTLY target the text links under:
+   - Stay Connected
+   - Contact Us (email)
+   Ensures color stays #fff and hover = underline
+*/
+
+.footer-social-links a,
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-social-links a:hover,
+.footer-contact a:hover {
+  text-decoration: underline !important;
+}
+
+footer a.footer-btn:hover {
+    text-decoration: none !important;
+}
+
+.enggtech-footer a.footer-btn {
+  color: #ff6a00 !important;
+}
+
+.enggtech-footer a.footer-btn:hover {
+  background-color: #ff6a00 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Blog index list */
+.blog-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.blog-list li {
+  margin-bottom: 1rem;
+}
+
+.blog-list a {
+  color: #000;
+  text-decoration: none;
+}
+
+.blog-list a:hover {
+  color: #ff6a00;
+}
