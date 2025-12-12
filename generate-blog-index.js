@@ -9,16 +9,13 @@ if (!fs.existsSync(blogDir) || !fs.existsSync(indexFile)) {
   process.exit(0);
 }
 
-// 1️⃣ Read current blog/index.html (template)
 let html = fs.readFileSync(indexFile, "utf8");
 
-// 2️⃣ Read ACTUAL files from /blog
 const posts = fs.readdirSync(blogDir)
   .filter(f => f.endsWith(".html") && f !== "index.html")
   .sort()
   .reverse();
 
-// 3️⃣ Build list (NO EXCEPTIONS)
 const listHtml = posts.map(f => {
   const title = f
     .replace(".html", "")
@@ -28,10 +25,8 @@ const listHtml = posts.map(f => {
   return `  <li><a href="/blog/${f}">${title}</a></li>`;
 }).join("\n");
 
-// 4️⃣ Replace list section ONLY
 const start = "<!-- BLOG-LIST-START -->";
 const end = "<!-- BLOG-LIST-END -->";
-
 const regex = new RegExp(`${start}[\\s\\S]*?${end}`, "m");
 
 html = html.replace(
@@ -43,7 +38,6 @@ ${listHtml}
 ${end}`
 );
 
-// 5️⃣ Write back
 fs.writeFileSync(indexFile, html, "utf8");
 
 console.log("blog/index.html regenerated from folder contents");
