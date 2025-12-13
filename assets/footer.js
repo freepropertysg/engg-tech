@@ -86,5 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </footer>
 `;
 
-  document.getElementById("enggtech-footer").innerHTML = footerHTML;
+  document.getElementById("site-footer").innerHTML = footerHTML;
+
 });
