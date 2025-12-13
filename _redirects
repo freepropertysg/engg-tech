@@ -8,9 +8,6 @@
 # 2) Redirect index.html to root
 /index.html  /  301
 
-# 3) Safety: normalize blog URLs
-/blog/*.html  /blog/:splat.html  301
-
 # =========================================
 # End of redirects
 # =========================================
