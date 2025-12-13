@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Only activate on Engg-Tech service / content pages (exclude homepage if needed)
+  // Only activate on Engg-Tech pages
   if (window.location.hostname !== "engg-tech.com") return;
 
   /* ---------------------------------------
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.head.appendChild(styleTag);
 
   /* ---------------------------------------
-     2. Recommended Services / Pages HTML
+     2. Recommended Section HTML (EMPTY)
   ---------------------------------------- */
   const recommendedHTML = `
     <section class="recommended-posts-section">
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 
   /* ---------------------------------------
-     3. FAQ HTML (SERVICE-BASED, SEO SAFE)
+     3. FAQ HTML (SERVICE-BASED)
   ---------------------------------------- */
   const faqHTML = `
     <section class="faq-section">
@@ -123,29 +123,5 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.insertAdjacentHTML("beforeend", recommendedHTML + faqHTML);
     }
   }
-
-  /* ---------------------------------------
-     5. Generate Recommended Services (STATIC)
-  ---------------------------------------- */
-  const services = [
-    { title: "Fire Protection Systems", url: "https://engg-tech.com/services.html#fire-protection" },
-    { title: "M&E Contracting Services", url: "https://engg-tech.com/services.html#me" },
-    { title: "General Construction Works", url: "https://engg-tech.com/services.html#construction" },
-    { title: "Renovation Services", url: "https://engg-tech.com/services.html#renovation" },
-    { title: "Electrical & Plumbing Services", url: "https://engg-tech.com/services.html#electrical-plumbing" },
-    { title: "IT Support & Web Services for SMEs", url: "https://engg-tech.com/services.html#it-services" },
-    { title: "Business Incorporation & Consulting", url: "https://engg-tech.com/services.html#business-consulting" }
-  ];
-
-  const selected = services.sort(() => Math.random() - 0.5).slice(0, 3);
-  const box = document.getElementById("recommendedContainer");
-  if (!box) return;
-
-  selected.forEach(item => {
-    box.insertAdjacentHTML(
-      "beforeend",
-      `<a href="${item.url}" class="reco-post-link">${item.title}</a>`
-    );
-  });
 
 });
