@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <p><em id="lastUpdated"></em></p>
 
-    <small class="disclaimer">Disclaimer: This page contains sponsored ads via Google AdSense.</small>
+    <small class="disclaimer">Disclaimer: This page contains sponsored ads.</small>
   </div>
 
   <!-- Auto-Year + Last Updated Script -->
@@ -89,3 +89,4 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("site-footer").innerHTML = footerHTML;
 
 });
+
