@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="navbar-nav">
       <ul id="navbarMenu">
         <li><a class="nav-link" href="https://engg-tech.com/sg/">Home</a></li>
-        <li><a class="nav-link" href="https://engg-tech.com/sg/about/">About Us</a></li>
+        <li><a class="nav-link" href="https://engg-tech.com/sg/about-us/">About Us</a></li>
         <li><a class="nav-link" href="https://engg-tech.com/sg/services/">Services</a></li>
         <li><a class="nav-link" href="https://engg-tech.com/sg/projects/">Projects</a></li>
         <li><a class="nav-link" href="https://engg-tech.com/sg/blog/">Blog</a></li>
@@ -73,3 +73,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
