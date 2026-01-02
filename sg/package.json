@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "engg-tech-site",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node generate-blog-index.js && node generate-sitemap.js"
+  }
+}
