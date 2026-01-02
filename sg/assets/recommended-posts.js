@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Only activate on Engg-Tech service / content pages (exclude homepage if needed)
+  // Only activate on Engg-Tech SG pages
   if (window.location.hostname !== "engg-tech.com") return;
+  if (!window.location.pathname.startsWith("/sg")) return;
 
   /* ---------------------------------------
      1. Inject CSS dynamically
@@ -55,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.head.appendChild(styleTag);
 
   /* ---------------------------------------
-     2. Recommended Services / Pages HTML
+     2. Recommended Services HTML
   ---------------------------------------- */
   const recommendedHTML = `
     <section class="recommended-posts-section">
@@ -128,13 +129,13 @@ document.addEventListener("DOMContentLoaded", () => {
      5. Generate Recommended Services (STATIC)
   ---------------------------------------- */
   const services = [
-    { title: "Fire Protection Systems", url: "https://engg-tech.com/services.html#fire-protection" },
-    { title: "M&E Contracting Services", url: "https://engg-tech.com/services.html#me" },
-    { title: "General Construction Works", url: "https://engg-tech.com/services.html#construction" },
-    { title: "Renovation Services", url: "https://engg-tech.com/services.html#renovation" },
-    { title: "Electrical & Plumbing Services", url: "https://engg-tech.com/services.html#electrical-plumbing" },
-    { title: "IT Support & Web Services for SMEs", url: "https://engg-tech.com/services.html#it-services" },
-    { title: "Business Incorporation & Consulting", url: "https://engg-tech.com/services.html#business-consulting" }
+    { title: "Fire Protection Systems", url: "https://engg-tech.com/sg/services/#fire-protection" },
+    { title: "M&E Contracting Services", url: "https://engg-tech.com/sg/services/#me" },
+    { title: "General Construction Works", url: "https://engg-tech.com/sg/services/#construction" },
+    { title: "Renovation Services", url: "https://engg-tech.com/sg/services/#renovation" },
+    { title: "Electrical & Plumbing Services", url: "https://engg-tech.com/sg/services/#electrical-plumbing" },
+    { title: "IT Support & Web Services for SMEs", url: "https://engg-tech.com/sg/services/#it-services" },
+    { title: "Business Incorporation & Consulting", url: "https://engg-tech.com/sg/services/#business-consulting" }
   ];
 
   const selected = services.sort(() => Math.random() - 0.5).slice(0, 3);
