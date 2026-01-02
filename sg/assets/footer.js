@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Stay Connected -->
     <div class="footer-column">
       <h2 class="footer-heading">Stay Connected</h2>
-      <p>Follow us for company updates, fire safety tips, and the latest projects.</p>
+      <p>Follow us for company updates, fire safety tips, and the latest projects in Singapore.</p>
       <p>
         <a href="https://linkedin.com/company/enggtechofficial" rel="me noopener noreferrer" target="_blank">LinkedIn</a> |
         <a href="https://facebook.com/enggtechofficial" rel="me noopener noreferrer" target="_blank">Facebook</a> |
@@ -20,10 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Explore Blog -->
     <div class="footer-column">
       <h2 class="footer-heading">Explore Our Blog</h2>
-      <p>From smart home tips to trending how-to guides, plus expert insights across industries—fresh, useful, and share-worthy content for curious readers everywhere.</p>
       <p>
-        <a class="footer-blog-link" href="https://engg-tech.com/blog/" title="Explore Engg-Tech’s fire protection and M&E services in Singapore">
-          Read Our Latest Articles & Discover More →
+        Practical fire safety tips, M&E guides, renovation insights, and industry knowledge
+        written for Singapore homes and businesses.
+      </p>
+      <p>
+        <a class="footer-blog-link"
+           href="https://engg-tech.com/sg/blog/"
+           title="Engg-Tech Singapore fire protection and M&E blog">
+          Read Our Latest Articles →
         </a>
       </p>
     </div>
@@ -31,28 +36,33 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Contact -->
     <div class="footer-column">
       <h2 class="footer-heading">Contact Us</h2>
-      <p>Email Us Today For Trusted Support</p>
+      <p>Email us today for trusted support in Singapore</p>
       <p><a href="mailto:info@engg-tech.com">info@engg-tech.com</a></p>
-      <a class="footer-btn" href="https://engg-tech.com/contact-us">Request with Online Form</a>
+      <a class="footer-btn" href="https://engg-tech.com/sg/contact-us/">
+        Request with Online Form
+      </a>
     </div>
+
   </div>
 
   <hr class="footer-divider">
 
   <div class="footer-bottom">
+
     <p>
       © 2015–<span id="copyYear"></span> Engg-Tech Construction Pte. Ltd. All rights reserved. |
-      <a href="https://engg-tech.com/privacy-policy">Privacy Policy</a>
+      <a href="https://engg-tech.com/sg/privacy-policy/">Privacy Policy</a>
     </p>
 
     <p>
       Designed &amp; Maintained by
-      <a href="https://engg-tech.com">Engg-Tech.com</a>
+      <a href="https://engg-tech.com/sg/">Engg-Tech Singapore</a>
     </p>
 
     <p><em id="lastUpdated"></em></p>
 
-    <small class="disclaimer">Disclaimer: This page contains sponsored ads.</small>
+    <small class="disclaimer">Disclaimer: This page may contain sponsored ads.</small>
+
   </div>
 
   <!-- Auto-Year + Last Updated Script -->
@@ -64,8 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const copyEl = document.getElementById("copyYear");
     if (copyEl) copyEl.textContent = year;
 
-    const months = ["January","February","March","April","May","June","July",
-      "August","September","October","November","December"];
+    const months = [
+      "January","February","March","April","May","June",
+      "July","August","September","October","November","December"
+    ];
 
     const formattedDate = \`\${months[now.getMonth()]} \${year}\`;
 
@@ -83,10 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.appendChild(n);
       s.dataset.ran=1;
     });">
+
 </footer>
 `;
 
   document.getElementById("site-footer").innerHTML = footerHTML;
 
 });
-
