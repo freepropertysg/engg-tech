@@ -4,7 +4,7 @@ const path = require("path");
 // ===============================
 // CONFIG
 // ===============================
-const SITE_URL = "https://postfre.com";
+const SITE_URL = "https://engg-tech.com";
 const BASE_PATH = "/sg";
 const BLOG_DIR = path.join(__dirname, "sg", "blog");
 
@@ -33,9 +33,10 @@ let urls = [];
 urls.push(
   urlBlock(`${SITE_URL}${BASE_PATH}/`, "1.0", "weekly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/about/`, "0.8", "monthly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/listings/`, "0.9", "daily"),
+  urlBlock(`${SITE_URL}${BASE_PATH}/services/`, "0.9", "weekly"),
+  urlBlock(`${SITE_URL}${BASE_PATH}/projects/`, "0.8", "monthly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/blog/`, "0.7", "weekly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/contact/`, "0.6", "monthly"),
+  urlBlock(`${SITE_URL}${BASE_PATH}/contact-us/`, "0.6", "monthly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/privacy-policy/`, "0.3", "yearly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/terms/`, "0.3", "yearly")
 );
@@ -61,6 +62,6 @@ ${urls.join("")}
 </urlset>
 `;
 
-fs.writeFileSync(path.join(__dirname, "sitemap.xml"), sitemap);
+fs.writeFileSync(path.join(__dirname, "sitemap.xml"), sitemap, "utf8");
 
 console.log("✅ Sitemap generated: /sitemap.xml");
