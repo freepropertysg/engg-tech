@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Page Not Found – Redirecting</title>
+<meta charset="UTF-8">
+<title>Redirecting…</title>
 
-  <!-- SEO -->
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://engg-tech.com/">
+<!-- SEO -->
+<meta name="robots" content="noindex, follow">
 
-  <!-- Redirect -->
-  <meta http-equiv="refresh" content="3; url=https://engg-tech.com/">
+<script>
+(function () {
+  var path = window.location.pathname;
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://engg-tech.com/assets/favicon/favicon.ico" type="image/x-icon">
+  // If already SG, do nothing
+  if (path.startsWith("/sg/")) return;
 
-  <!-- Countdown Script -->
-  <script>
-    let seconds = 3;
-    function updateCountdown() {
-      const c = document.getElementById("countdown");
-      if (seconds > 0) {
-        c.textContent = seconds;
-        seconds--;
-        setTimeout(updateCountdown, 1000);
-      }
-    }
-    window.onload = updateCountdown;
-  </script>
+  // Handle root
+  if (path === "/" || path === "/index.html") {
+    window.location.replace("/sg/");
+    return;
+  }
+
+  // Redirect ALL other URLs to /sg equivalent
+  window.location.replace("/sg" + path.replace(/\/$/, ""));
+})();
+</script>
+
+<noscript>
+  <meta http-equiv="refresh" content="0; url=/sg/">
+</noscript>
+
 </head>
-
-<body style="font-family:Arial,sans-serif;text-align:center;padding:60px;">
-  <h1>Oops! Page Not Found</h1>
-  <p>
-    This page doesn’t exist.<br>
-    You’ll be redirected to <strong>Engg-Tech Construction</strong> in
-    <strong><span id="countdown">3</span> seconds</strong>.
-  </p>
-  <p>
-    <a href="https://engg-tech.com/">Click here if you are not redirected automatically.</a>
-  </p>
+<body>
+Redirecting…
 </body>
 </html>
