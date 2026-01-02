@@ -27,7 +27,7 @@ const html = fs.readFileSync(INDEX_FILE, "utf8");
 // READ BLOG POSTS
 // ===============================
 const posts = fs.readdirSync(BLOG_DIR)
-  .filter(f => f.endsWith(".html") && f !== "index.html")
+  .filter(file => file.endsWith(".html") && file !== "index.html")
   .sort();
 
 // ===============================
@@ -53,6 +53,6 @@ const updated = html.replace(
 // ===============================
 // WRITE BACK
 // ===============================
-fs.writeFileSync(INDEX_FILE, updated);
+fs.writeFileSync(INDEX_FILE, updated, "utf8");
 
 console.log("✅ Blog index updated: /sg/blog/index.html");
