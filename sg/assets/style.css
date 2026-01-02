@@ -121,7 +121,9 @@ body {
 ======================================================= */
 
 
-/* Blog Page Two Column Layout START */
+/* =======================================================
+   Blog Page Two Column Layout
+======================================================= */
 @media (min-width: 900px) {
   .blog-columns {
     display: flex;
@@ -134,8 +136,9 @@ body {
   }
 }
 
+
 /* =======================================================
-   FOOTER STYLES (Extracted from footer.js)
+   FOOTER STYLES
 ======================================================= */
 
 .enggtech-footer {
@@ -220,15 +223,10 @@ body {
   margin-top: 0.5rem;
 }
 
-/* =======================================================
-   Social Links + Email Styling (NEW)
-======================================================= */
 
-/* DIRECTLY target the text links under:
-   - Stay Connected
-   - Contact Us (email)
-   Ensures color stays #fff and hover = underline
-*/
+/* =======================================================
+   Social Links + Email Styling
+======================================================= */
 
 .footer-social-links a,
 .footer-contact a {
@@ -242,7 +240,7 @@ body {
 }
 
 footer a.footer-btn:hover {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 .enggtech-footer a.footer-btn {
@@ -255,7 +253,10 @@ footer a.footer-btn:hover {
   text-decoration: none !important;
 }
 
-/* Blog index list */
+
+/* =======================================================
+   Blog Index List
+======================================================= */
 .blog-list {
   list-style: none;
   padding-left: 0;
