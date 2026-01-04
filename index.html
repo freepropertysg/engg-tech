@@ -2,19 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-
 <title>Redirecting…</title>
 
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://engg-tech.com/sg/">
 
-<meta http-equiv="refresh" content="0; url=https://engg-tech.com/sg/">
+<style>
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+.notice {
+  max-width: 480px;
+  margin: 0 auto;
+}
+.countdown {
+  font-weight: bold;
+}
+</style>
+
 <script>
-  window.location.replace("https://engg-tech.com/sg/");
+(async function () {
+  const fallback = "https://engg-tech.com/sg/";
+  const api = "https://ipapi.co/json/";
+
+  try {
+    const res = await fetch(api);
+    const data = await res.json();
+    const country = (data.country_code || "").toLowerCase();
+
+    if (!country) throw new Error("No country");
+
+    const target = `https://engg-tech.com/${country}/`;
+
+    // Check if country page exists
+    const check = await fetch(target, { method: "HEAD" });
+
+    if (check.ok) {
+      window.location.replace(target);
+      return;
+    }
+
+  } catch (e) {
+    // silent fallback
+  }
+
+  // If page not available
+  let seconds = 5;
+  document.getElementById("msg").innerHTML =
+    `Engg-Tech is currently not available in your location.<br>
+     Redirecting to Singapore site in <span class="countdown">${seconds}</span> seconds…`;
+
+  const timer = setInterval(() => {
+    seconds--;
+    document.querySelector(".countdown").textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      window.location.replace(fallback);
+    }
+  }, 1000);
+})();
 </script>
+
+<noscript>
+<meta http-equiv="refresh" content="0; url=https://engg-tech.com/sg/">
+</noscript>
+
 </head>
 
 <body>
-<p>Redirecting to <a href="https://engg-tech.com/sg/">Engg-Tech Singapore</a>…</p>
+<div class="notice">
+  <p id="msg">Checking availability…</p>
+</div>
 </body>
 </html>
