@@ -5,8 +5,7 @@ const path = require("path");
 // CONFIG
 // ===============================
 const SITE_URL = "https://engg-tech.com";
-const BASE_PATH = "/sg";
-const BLOG_DIR = path.join(__dirname, "sg", "blog");
+const ROOT_DIR = __dirname;
 
 // today as YYYY-MM-DD
 const today = new Date().toISOString().split("T")[0];
@@ -29,39 +28,92 @@ function urlBlock(loc, priority, changefreq) {
 // ===============================
 let urls = [];
 
-// === STATIC PAGES (SG) ===
+/* ==============================
+   ROOT PAGES
+================================ */
 urls.push(
-  urlBlock(`${SITE_URL}${BASE_PATH}/`, "1.0", "weekly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/about/`, "0.8", "monthly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/services/`, "0.9", "weekly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/projects/`, "0.8", "monthly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/blog/`, "0.7", "weekly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/contact-us/`, "0.6", "monthly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/privacy-policy/`, "0.3", "yearly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/terms/`, "0.3", "yearly")
+  urlBlock(`${SITE_URL}/`, "1.0", "weekly"),
+  urlBlock(`${SITE_URL}/about-us/`, "0.8", "monthly"),
+  urlBlock(`${SITE_URL}/services/`, "0.9", "weekly"),
+  urlBlock(`${SITE_URL}/projects/`, "0.8", "monthly"),
+  urlBlock(`${SITE_URL}/contact-us/`, "0.6", "monthly"),
+  urlBlock(`${SITE_URL}/privacy-policy/`, "0.3", "yearly"),
+  urlBlock(`${SITE_URL}/terms/`, "0.3", "yearly")
 );
 
-// === BLOG POSTS (SG) ===
-if (fs.existsSync(BLOG_DIR)) {
-  fs.readdirSync(BLOG_DIR).forEach(file => {
+/* ==============================
+   ROOT BLOG ( /blog )
+================================ */
+const rootBlogDir = path.join(ROOT_DIR, "blog");
+
+if (fs.existsSync(rootBlogDir)) {
+  urls.push(
+    urlBlock(`${SITE_URL}/blog/`, "0.8", "weekly")
+  );
+
+  fs.readdirSync(rootBlogDir).forEach(file => {
     if (file.endsWith(".html") && file !== "index.html") {
       const slug = file.replace(".html", "");
       urls.push(
-        urlBlock(`${SITE_URL}${BASE_PATH}/blog/${slug}`, "0.6", "monthly")
+        urlBlock(`${SITE_URL}/blog/${slug}`, "0.6", "monthly")
       );
     }
   });
 }
 
-// ===============================
-// SITEMAP OUTPUT
-// ===============================
+/* ==============================
+   AUTO-DETECT COUNTRY FOLDERS
+   (sg, my, ph, etc.)
+================================ */
+fs.readdirSync(ROOT_DIR, { withFileTypes: true })
+  .filter(
+    d =>
+      d.isDirectory() &&
+      /^[a-z]{2}$/.test(d.name) &&
+      d.name !== "node_modules"
+  )
+  .forEach(country => {
+    const code = country.name;
+    const countryPath = path.join(ROOT_DIR, code);
+    const blogDir = path.join(countryPath, "blog");
+
+    // Country homepage
+    urls.push(
+      urlBlock(`${SITE_URL}/${code}/`, "0.9", "weekly")
+    );
+
+    // Country static pages
+    urls.push(
+      urlBlock(`${SITE_URL}/${code}/services/`, "0.8", "weekly"),
+      urlBlock(`${SITE_URL}/${code}/projects/`, "0.7", "monthly")
+    );
+
+    // Country blog
+    if (fs.existsSync(blogDir)) {
+      urls.push(
+        urlBlock(`${SITE_URL}/${code}/blog/`, "0.7", "weekly")
+      );
+
+      fs.readdirSync(blogDir).forEach(file => {
+        if (file.endsWith(".html") && file !== "index.html") {
+          const slug = file.replace(".html", "");
+          urls.push(
+            urlBlock(`${SITE_URL}/${code}/blog/${slug}`, "0.6", "monthly")
+          );
+        }
+      });
+    }
+  });
+
+/* ==============================
+   OUTPUT
+================================ */
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.join("")}
 </urlset>
 `;
 
-fs.writeFileSync(path.join(__dirname, "sitemap.xml"), sitemap, "utf8");
+fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), sitemap, "utf8");
 
-console.log("✅ Sitemap generated: /sitemap.xml");
+console.log("✅ Sitemap generated successfully (ENGG-TECH root + blog + countries)");
