@@ -1,104 +1,98 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-  const footerHTML = `
-<footer class="enggtech-footer">
+const footerHTML=`
+<footer style="text-align:center;font-size:0.9rem;">
 
-  <div class="footer-inner">
+  <p style="margin:0.2rem 0;">
+    © <span id="copyYear"></span> PostFre — Classifieds Platform
+  </p>
 
-    <!-- Stay Connected -->
-    <div class="footer-column">
-      <h2 class="footer-heading">Stay Connected</h2>
-      <p>Follow us for company updates, fire safety tips, and the latest projects in Singapore.</p>
-      <p>
-  <a href="https://linkedin.com/company/enggtechofficial" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-  <a href="https://facebook.com/enggtech" target="_blank" rel="noopener noreferrer">Facebook</a> |
-  <a href="https://instagram.com/enggtechofficial" target="_blank" rel="noopener noreferrer">Instagram</a> |
-  <a href="https://youtube.com/@enggtechofficial" target="_blank" rel="noopener noreferrer">YouTube</a>
-      </p>
-    </div>
+  <p style="margin:0.2rem 0;">
+  <a href="https://postfre.com/about/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#2563EB'"
+     onmouseout="this.style.color='inherit'">About</a> |
+  <a href="https://postfre.com/contact/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#2563EB'"
+     onmouseout="this.style.color='inherit'">Contact</a> |
+  <a href="https://postfre.com/privacy-policy/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#2563EB'"
+     onmouseout="this.style.color='inherit'">Privacy Policy</a> |
+  <a href="https://postfre.com/terms/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#2563EB'"
+     onmouseout="this.style.color='inherit'">Terms of Service</a> |
+  <a href="https://postfre.com/posting-guidelines/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#2563EB'"
+     onmouseout="this.style.color='inherit'">Posting Guidelines</a>
+</p>
 
-    <!-- Explore Blog -->
-    <div class="footer-column">
-      <h2 class="footer-heading">Explore Our Blog</h2>
-      <p>
-        Practical fire safety tips, M&E guides, renovation insights, and industry knowledge
-        written for Singapore homes and businesses.
-      </p>
-      <p>
-        <a class="footer-blog-link"
-           href="https://engg-tech.com/sg/blog/"
-           title="Engg-Tech Singapore fire protection and M&E blog">
-          Read Our Latest Articles →
-        </a>
-      </p>
-    </div>
+  <p style="margin:0.2rem 0;">
+  <a href="https://www.facebook.com/postfreofficial"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#2563EB'"
+     onmouseout="this.style.color='inherit'">Facebook</a> |
+  <a href="https://www.instagram.com/postfreofficial/"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#2563EB'"
+     onmouseout="this.style.color='inherit'">Instagram</a> |
+  <a href="https://www.youtube.com/@postfre"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#2563EB'"
+     onmouseout="this.style.color='inherit'">YouTube</a>
+  </p>
 
-    <!-- Contact -->
-    <div class="footer-column">
-      <h2 class="footer-heading">Contact Us</h2>
-      <p>Email us today for trusted support in Singapore</p>
-      <p><a href="mailto:info@engg-tech.com">info@engg-tech.com</a></p>
-      <a class="footer-btn" href="https://engg-tech.com/sg/contact-us/">
-        Request with Online Form
-      </a>
-    </div>
+  <p style="margin:0.2rem 0;">
+    <em id="lastUpdated"></em>
 
-  </div>
+    <script data-exec>
+    (function(){
+      const now=new Date();
+      const year=now.getFullYear();
+      const copyEl=document.getElementById("copyYear");
+      if(copyEl)copyEl.textContent=year;
+      const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const formattedDate=now.getDate()+" "+months[now.getMonth()]+" "+year;
+      const updatedEl=document.getElementById("lastUpdated");
+      if(updatedEl)updatedEl.textContent="Last updated: "+formattedDate;
+    })();
+    </script>
 
-  <hr class="footer-divider">
+    <img alt="" style="display:none"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+      onload="document.querySelectorAll('script[data-exec]:not([data-ran])').forEach(s=>{let n=document.createElement('script');n.text=s.textContent;document.body.appendChild(n);s.dataset.ran=1;});">
+  </p>
 
-  <div class="footer-bottom">
-
-    <p>
-      © 2015–<span id="copyYear"></span> Engg-Tech Construction Pte. Ltd. All rights reserved. |
-      <a href="https://engg-tech.com/sg/privacy-policy/">Privacy Policy</a>
-    </p>
-
-    <p>
-      Designed &amp; Maintained by
-      <a href="https://engg-tech.com/sg/">Engg-Tech Singapore</a>
-    </p>
-
-    <p><em id="lastUpdated"></em></p>
-
-    <small class="disclaimer">Disclaimer: This page may contain sponsored ads.</small>
-
-  </div>
-
-  <!-- Auto-Year + Last Updated Script -->
-  <script data-exec>
-  (function() {
-    const now = new Date();
-    const year = now.getFullYear();
-
-    const copyEl = document.getElementById("copyYear");
-    if (copyEl) copyEl.textContent = year;
-
-    const months = [
-      "January","February","March","April","May","June",
-      "July","August","September","October","November","December"
-    ];
-
-    const formattedDate = \`\${months[now.getMonth()]} \${year}\`;
-
-    const updatedEl = document.getElementById("lastUpdated");
-    if (updatedEl) updatedEl.textContent = \`Last updated: \${formattedDate}\`;
-  })();
-  </script>
-
-  <!-- Force dynamic execution -->
-  <img alt="" style="display:none"
-    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-    onload="document.querySelectorAll('script[data-exec]:not([data-ran])').forEach(s=>{
-      let n=document.createElement('script');
-      n.text=s.textContent;
-      document.body.appendChild(n);
-      s.dataset.ran=1;
-    });">
-
+  <p style="
+  max-width:720px;
+  margin:0.4rem auto;
+  font-size:0.75rem;
+  opacity:0.85;
+">
+  PostFre.com is an independent online classified advertising platform. PostFre is a coined brand name used solely to identify this platform and is not affiliated with, endorsed by, sponsored by or connected to any other company, website, organisation, trademark or service. Any similarity in names, words, spellings, products or services is purely coincidental. 
+  <br>Listings are submitted by users and PostFre does not endorse, verify or claim ownership of such content. To report a listing or request removal, please contact <a href="mailto:admin@postfre.com" style="color:inherit;text-decoration:underline;">admin@postfre.com</a>
+</p>
 </footer>
 `;
 
-  document.getElementById("site-footer").innerHTML = footerHTML;
+document.getElementById("site-footer").innerHTML=footerHTML;
+
+const updatedEl=document.getElementById("lastUpdated");
+if(updatedEl){
+  const disclaimer=document.createElement("small");
+  disclaimer.textContent="Disclaimer: This page may contain sponsored ads.";
+  disclaimer.style.display="block";
+  disclaimer.style.marginTop="0.2rem";
+  updatedEl.insertAdjacentElement("afterend",disclaimer);
+}
 
 });

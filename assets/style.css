@@ -1,276 +1,197 @@
 /* =======================================================
-   Engg-Tech Navbar
-======================================================= */
-
-/* ---------------------------------------
    Base Styles
----------------------------------------- */
+======================================================= */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: sans-serif;
-  padding-top: 64px;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
 }
 
-/* ---------------------------------------
-   Navbar
----------------------------------------- */
-.navbar-custom {
-  background-color: rgba(33, 37, 41, 0.9);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  position: fixed;
+/* =======================================================
+   NAVBAR (Desktop + Mobile)
+======================================================= */
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 12px 0;
+  position: sticky;
   top: 0;
-  width: 100%;
-  z-index: 9999;
+  z-index: 999;
 }
 
-.navbar-container {
+.nav-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
 }
 
-.navbar-brand {
-  color: #ff6a00;
+.nav-logo {
   font-weight: bold;
   text-decoration: none;
-  font-size: 1.25rem;
-  text-transform: uppercase;
+  color: #000;
+  font-size: 20px;
 }
 
-.navbar-nav ul {
-  display: flex;
-  gap: 1.5rem;
+/* Desktop Menu */
+.nav-menu {
   list-style: none;
+  display: flex;
+  gap: 24px;
   margin: 0;
   padding: 0;
 }
 
-.nav-link {
-  color: #ffffff;
+.nav-menu a {
   text-decoration: none;
-  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+  transition: 0.2s;
   text-transform: uppercase;
-  position: relative;
-  z-index: 1;
+  font-weight: bold;
 }
 
-.nav-link:hover {
-  color: #ff6a00;
-  text-decoration: none;
-}
-
-/* Active link highlight box */
-.nav-link.active:not(.navbar-brand)::after {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: -10px;
-  right: -10px;
-  bottom: -6px;
-  border: 2px solid #ffffffaa;
+/* ACTIVE LINK */
+.nav-menu a.active {
+  border: 2px solid #333;
   border-radius: 6px;
-  pointer-events: none;
-  z-index: -1;
+  padding: 4px 8px;
 }
 
-/* ---------------------------------------
-   Mobile Navbar
----------------------------------------- */
+.nav-menu a:hover {
+  color: #2563EB;
+}
+
+/* =======================================================
+   MOBILE MENU
+======================================================= */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+}
+
 @media (max-width: 768px) {
-  .navbar-nav ul {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
     flex-direction: column;
-    background: #212529;
     position: absolute;
     top: 64px;
     left: 0;
     right: 0;
     width: 100%;
+    background: #ffffff;
     display: none;
     padding: 1rem 2rem;
     box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;
   }
 
-  .navbar-nav ul.show {
+  .nav-menu.show {
     display: flex;
   }
 
-  .nav-link {
-    white-space: nowrap;
-    font-size: 1.2rem;
+  .nav-menu a {
+    font-size: 18px;
+    padding: 10px 0;
+    font-weight: bold;
   }
 
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #fff;
-    z-index: 10000;
-    margin-left: auto;
-  }
-}
-
-@media (min-width: 769px) {
-  .menu-toggle {
-    display: none;
+  .nav-menu a.active {
+    border: 2px solid #333;
+    border-radius: 6px;
+    padding: 6px 10px;
   }
 }
 
 /* =======================================================
-   Engg-Tech Navbar End
+   HERO SECTION
 ======================================================= */
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #f8f8f8;
+}
 
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 6px 0;
+}
 
 /* =======================================================
-   Blog Page Two Column Layout
+   CONTENT WRAPPER
 ======================================================= */
-@media (min-width: 900px) {
-  .blog-columns {
-    display: flex;
-  }
+.content-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding-top: 1rem;
 }
 
-@media (max-width: 899px) {
-  .blog-columns {
-    display: block;
-  }
+.content-container h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
 }
-
 
 /* =======================================================
-   FOOTER STYLES
+   LISTINGS
 ======================================================= */
-
-.enggtech-footer {
-  background-color: #1e2327;
-  color: #fff;
-  padding: 3rem 1.5rem 2rem;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  font-size: 1rem;
+.listing-box {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
 }
 
-/* Global footer link default + hover underline */
-.enggtech-footer a {
-  color: #fff;
-  text-decoration: none;
+.listing-title {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
-.enggtech-footer a:hover {
-  text-decoration: underline !important;
+.listing-meta {
+  margin: 4px 0;
+  color: #555;
 }
 
-.footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 auto;
-  gap: 2rem;
+.contact-line {
+  margin-top: 8px;
+  font-weight: bold;
 }
 
-.footer-column {
-  flex: 1;
-  min-width: 250px;
-}
-
-.footer-heading {
-  font-weight: 800;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.footer-blog-link {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer-btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border: 2px solid #ff6a00;
-  color: #ff6a00;
-  text-decoration: none;
-  border-radius: 0;
-  transition: all 0.3s ease;
-}
-
-.footer-btn:hover {
-  background-color: #ff6a00;
-  color: #fff;
-  text-decoration: none !important;
-}
-
-.footer-divider {
-  margin-top: 4rem;
-  margin-bottom: 1.5rem;
-  max-width: 1200px;
-  border: 0;
-  border-top: 1.5px solid #ffffff;
-}
-
-.footer-bottom {
+/* =======================================================
+   FOOTER
+======================================================= */
+footer {
+  margin-top: 3rem;
+  background: #f8f8f8;
+  padding: 1.5rem;
   text-align: center;
   font-size: 0.9rem;
+  color: #555;
 }
-
-.footer-bottom a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.disclaimer {
-  display: block;
-  margin-top: 0.5rem;
-}
-
 
 /* =======================================================
-   Social Links + Email Styling
+   BLOG LINKS
 ======================================================= */
-
-.footer-social-links a,
-.footer-contact a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer-social-links a:hover,
-.footer-contact a:hover {
-  text-decoration: underline !important;
-}
-
-footer a.footer-btn:hover {
-  text-decoration: none !important;
-}
-
-.enggtech-footer a.footer-btn {
-  color: #ff6a00 !important;
-}
-
-.enggtech-footer a.footer-btn:hover {
-  background-color: #ff6a00 !important;
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
-
-
-/* =======================================================
-   Blog Index List
-======================================================= */
-.blog-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.blog-list li {
-  margin-bottom: 1rem;
-}
-
 .blog-list a {
-  color: #000;
+  color: #333;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .blog-list a:hover {
-  color: #ff6a00;
+  color: #2563EB;
 }
