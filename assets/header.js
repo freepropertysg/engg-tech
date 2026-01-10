@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let seg = parts[0] || "";
   let isCountry = /^[a-z]{2}$/.test(seg);
 
-  if (isCountry) localStorage.setItem("pf_country", seg);
+  if (isCountry) localStorage.setItem("et_country", seg);
 
-  let saved = localStorage.getItem("pf_country");
+  let saved = localStorage.getItem("et_country");
   let base = isCountry ? `/${seg}` : (saved ? `/${saved}` : "");
 
   /* =============================
@@ -36,18 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
     display:inline-flex;
     align-items:center;
     gap:6px;
-
     font-size:16px;
     font-weight:bold;
     line-height:1;
     padding:4px 8px;
-
-    border:none;              /* ✅ BORDER REMOVED */
+    border:none;
     border-radius:4px;
     background:#fff;
     cursor:pointer;
     white-space:nowrap;
-
     width:auto;
     max-width:none;
     min-width:unset;
@@ -93,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .pf-country-input{
       font-size:18px;
       padding:10px 0;
-      border:none;            /* ✅ BORDER REMOVED (MOBILE) */
+      border:none;
     }
   }
   `;
@@ -109,13 +106,16 @@ document.addEventListener("DOMContentLoaded", () => {
       <a href="${base || "/"}" class="nav-logo"
        style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
         <span style="font-size:16px;font-family:Poppins,sans-serif;">
-          <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#14B8A6;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
+          <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">E</span>
+          <span style="font-weight:600;color:#2563EB;">ngg</span>
+          <span style="font-weight:600;color:#14B8A6;">Tech</span>
+          <span style="font-weight:400;color:#9CA3AF;">.com</span>
         </span>
-        <span style="font-size:11.5px;font-weight:500;font-family:Poppins,sans-serif;color:#4B5563; letter-spacing:0.2px;">
-           Post on your own terms
+        <span style="font-size:11.5px;font-weight:500;font-family:Poppins,sans-serif;color:#4B5563;letter-spacing:0.2px;">
+          Engineering & construction services
         </span>
         <span style="font-size:10.5px;font-weight:400;font-family:Poppins,sans-serif;color:#6B7280;">
-          Classified ads and listings
+          Contractors · Trade services · Industry listings
         </span>
       </a>
 
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdown = document.getElementById("pfCountryDropdown");
   const listBox = document.getElementById("pfCountryList");
   const search = document.getElementById("pfCountrySearch");
-  const BASE_URL = "https://www.postfre.com/";
+  const BASE_URL = "https://www.engg-tech.com/";
 
   function flag(code){
     return code.toUpperCase().replace(/./g,c=>String.fromCodePoint(127397+c.charCodeAt()));
@@ -210,10 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
             fetch(target,{method:"HEAD"})
               .then(res=>{
                 if(res.ok){
-                  localStorage.setItem("pf_country", div.dataset.code);
+                  localStorage.setItem("et_country", div.dataset.code);
                   location.href=target;
                 }else{
-                  alert(`PostFre is currently not available in ${div.dataset.name}. Please email info@postfre.com`);
+                  alert(`Engg-Tech is currently not available in ${div.dataset.name}. Please email info@engg-tech.com`);
                 }
               });
           };

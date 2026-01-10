@@ -4,7 +4,7 @@ const path = require("path");
 // ===============================
 // CONFIG
 // ===============================
-const SITE_URL = "https://postfre.com";
+const SITE_URL = "https://engg-tech.com";
 const ROOT_DIR = __dirname;
 
 // today as YYYY-MM-DD
@@ -110,4 +110,4 @@ ${urls.join("")}
 
 fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), sitemap);
 
-console.log("✅ Sitemap generated successfully (root + blog + countries)");
+console.log("✅ Sitemap generated successfully for engg-tech.com (root + blog + countries)");

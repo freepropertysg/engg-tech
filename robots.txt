@@ -69,7 +69,7 @@ Disallow: /
 # 🧭 Sitemap Location
 # ===============================
 
-Sitemap: https://postfre.com/sg/sitemap.xml
+Sitemap: https://engg-tech.com/sitemap.xml
 
 
 # ===============================
@@ -77,4 +77,4 @@ Sitemap: https://postfre.com/sg/sitemap.xml
 # ===============================
 
 User-agent: *
-Allow: /sg/
+Allow: /

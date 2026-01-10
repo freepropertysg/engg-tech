@@ -71,37 +71,37 @@ document.addEventListener("DOMContentLoaded",()=>{
   `;
 
   /* ---------------------------------------
-     4. FAQ HTML (GLOBAL, NEUTRAL)
+     4. FAQ HTML (ENGG-TECH)
   ---------------------------------------- */
   const faqHTML=`
     <section class="faq-section">
       <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
-        <strong>Is PostFre free to use?</strong>
-        <p>Yes. PostFre is completely free to use. You can post and browse classified listings without any platform fees or subscriptions.</p>
+        <strong>What is Engg-Tech?</strong>
+        <p>Engg-Tech is an engineering and construction services platform connecting contractors, trade professionals, and service providers with clients.</p>
       </div>
 
       <div class="faq-item">
-        <strong>Who can use PostFre?</strong>
-        <p>PostFre is open to everyone, including individuals, freelancers, small businesses, property owners, and service providers.</p>
+        <strong>Who can list services on Engg-Tech?</strong>
+        <p>Engg-Tech is open to contractors, engineers, technicians, SMEs, freelancers, and companies offering engineering or trade-related services.</p>
       </div>
 
       <div class="faq-item">
-        <strong>What types of listings are allowed on PostFre?</strong>
-        <p>PostFre allows a wide range of listings such as jobs, services, property, rentals, items for sale, and other general classified advertisements.</p>
+        <strong>What types of services are listed?</strong>
+        <p>Listings include engineering services, construction work, fire protection, M&E, renovation, maintenance, IT infrastructure, and related trades.</p>
       </div>
 
       <div class="faq-item">
-        <strong>Do I need to create an account to post listings?</strong>
-        <p>No account registration is required. PostFre is designed to keep posting simple and accessible for all users.</p>
+        <strong>Do I need an account to contact service providers?</strong>
+        <p>No account is required. Engg-Tech is designed to keep access simple and direct.</p>
       </div>
 
       <div class="faq-item">
-        <strong>How can I share feedback or suggestions?</strong>
+        <strong>How can I contact Engg-Tech?</strong>
         <p>You can email our team at
-        <a href="mailto:info@postfre.com">info@postfre.com</a>
-        so we can continue improving the platform.</p>
+        <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
+        for enquiries, feedback, or collaboration.</p>
       </div>
     </section>
   `;

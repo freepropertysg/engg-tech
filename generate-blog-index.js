@@ -55,4 +55,4 @@ const updated = html.replace(
 // ===============================
 fs.writeFileSync(INDEX_FILE, updated);
 
-console.log("✅ Blog index updated: /sg/blog/index.html");
+console.log("✅ Engg-Tech SG blog index updated: /sg/blog/index.html");
