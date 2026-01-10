@@ -27,7 +27,7 @@ const html = fs.readFileSync(INDEX_FILE, "utf8");
 // READ BLOG POSTS
 // ===============================
 const posts = fs.readdirSync(BLOG_DIR)
-  .filter(file => file.endsWith(".html") && file !== "index.html")
+  .filter(f => f.endsWith(".html") && f !== "index.html")
   .sort();
 
 // ===============================
