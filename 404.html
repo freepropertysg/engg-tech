@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Redirecting…</title>
+
+<!-- SEO -->
+<meta name="robots" content="noindex, follow">
+
+<script>
+(function () {
+  var path = window.location.pathname;
+
+  // If already SG, do nothing
+  if (path.startsWith("/sg/")) return;
+
+  // Handle root
+  if (path === "/" || path === "/index.html") {
+    window.location.replace("/sg/");
+    return;
+  }
+
+  // Redirect ALL other URLs to /sg equivalent
+  window.location.replace("/sg" + path.replace(/\/$/, ""));
+})();
+</script>
+
+<noscript>
+  <meta http-equiv="refresh" content="0; url=/sg/">
+</noscript>
+
+</head>
+<body>
+Redirecting…
+</body>
+</html>
