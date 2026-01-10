@@ -1,152 +1,165 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-  // Only activate on Engg-Tech SG pages
-  if (window.location.hostname !== "engg-tech.com") return;
-  if (!window.location.pathname.startsWith("/sg")) return;
+  /* Blog pages only */
+
+  const path = window.location.pathname;
+
+  const countryMatch = path.match(/^\/([a-z]{2})\/blog\//);
+  const isRootBlog = path.startsWith("/blog/");
+
+  if(!countryMatch && !isRootBlog) return;
 
   /* ---------------------------------------
-     1. Inject CSS dynamically
+     1. Decide blog base URL
   ---------------------------------------- */
-  const css = `
+  let blogBase = "/blog/";
+  let blogLinkMatch = "/blog/";
+
+  if(countryMatch){
+    blogBase = `/${countryMatch[1]}/blog/`;
+    blogLinkMatch = `/${countryMatch[1]}/blog/`;
+  }
+
+  /* ---------------------------------------
+     2. Inject CSS dynamically
+  ---------------------------------------- */
+  const css=`
     .recommended-posts-section,
-    .faq-section {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      padding: 0 !important;
+    .faq-section{
+      margin-top:2rem;
+      margin-bottom:2rem;
+      padding:0!important;
     }
-
     .recommended-posts-section h2,
-    .faq-section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      color: #212529;
-      font-weight: 700;
+    .faq-section h2{
+      font-size:1.6rem;
+      margin-bottom:1rem;
+      color:#212529;
+      font-weight:700;
     }
-
-    .recommended-posts-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
+    .recommended-posts-container{
+      display:flex;
+      flex-direction:column;
+      gap:1.2rem;
     }
-
-    .reco-post-link {
-      text-decoration: none;
-      color: #000;
-      padding: 0.2rem 0;
-      display: block;
-      transition: color 0.2s ease;
+    .reco-post-link{
+      text-decoration:none;
+      color:#000;
+      padding:0.2rem 0;
+      display:block;
+      transition:color 0.2s ease;
     }
-
-    .reco-post-link:hover {
-      color: #ff6a00;
-    }
-
-    .faq-item {
-      margin-bottom: 1.2rem;
-    }
-
-    .faq-item strong {
-      display: block;
-      margin-bottom: 0.3rem;
+    .reco-post-link:hover{color:#2563EB;}
+    .faq-item{margin-bottom:1rem;}
+    .faq-item strong{
+      display:block;
+      margin-bottom:0.3rem;
     }
   `;
-
-  const styleTag = document.createElement("style");
-  styleTag.textContent = css;
+  const styleTag=document.createElement("style");
+  styleTag.textContent=css;
   document.head.appendChild(styleTag);
 
   /* ---------------------------------------
-     2. Recommended Services HTML
+     3. Recommended Posts HTML
   ---------------------------------------- */
-  const recommendedHTML = `
+  const recommendedHTML=`
     <section class="recommended-posts-section">
-      <h2>Related Services</h2>
+      <h2>Recommended Articles</h2>
       <div id="recommendedContainer" class="recommended-posts-container"></div>
     </section>
   `;
 
   /* ---------------------------------------
-     3. FAQ HTML (SERVICE-BASED, SEO SAFE)
+     4. FAQ HTML (ENGG-TECH NEUTRAL)
   ---------------------------------------- */
-  const faqHTML = `
+  const faqHTML=`
     <section class="faq-section">
       <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
-        <strong>What fire protection systems do you provide?</strong>
-        <p>We provide fire sprinkler systems, fire alarm systems, hose reels, wet and dry risers, fire hydrants, and clean agent suppression systems such as FM-200 and Novec.</p>
+        <strong>What services does Engg-Tech provide?</strong>
+        <p>Engg-Tech provides fire protection works, M&E services, renovation support, and small-scale installation projects for commercial and industrial spaces.</p>
       </div>
 
       <div class="faq-item">
-        <strong>Do you handle both mechanical and electrical works?</strong>
-        <p>Yes. Our M&E services cover electrical distribution, HVAC systems, mechanical ventilation, plumbing, and integrated system coordination.</p>
+        <strong>Do you handle large main-contractor projects?</strong>
+        <p>No. Engg-Tech focuses on short-term, small to mid-sized projects that can be completed efficiently without long certification processes.</p>
       </div>
 
       <div class="faq-item">
-        <strong>What types of construction projects do you undertake?</strong>
-        <p>We undertake general construction works including civil works, structural framing, roofing, finishing, waterproofing, and coordination works.</p>
+        <strong>Do you provide fire alarm and sprinkler installation?</strong>
+        <p>Yes. We handle fire alarm systems, sprinkler installations, replacements, and modifications for existing buildings.</p>
       </div>
 
       <div class="faq-item">
-        <strong>What renovation services are available?</strong>
-        <p>Our renovation services include flooring, tiling, ceiling works, carpentry, partitions, painting, and interior space optimisation.</p>
+        <strong>Which countries does Engg-Tech operate in?</strong>
+        <p>Availability depends on location. Please check your selected country or contact us directly for confirmation.</p>
       </div>
 
       <div class="faq-item">
-        <strong>Do you provide electrician and plumbing services?</strong>
-        <p>Yes. We provide licensed electrical works such as rewiring, power point installation, lighting setup, as well as plumbing services including pipe installation, sanitary fitting, and leak repairs.</p>
-      </div>
-
-      <div class="faq-item">
-        <strong>Do you offer IT and digital services for businesses?</strong>
-        <p>We provide IT support and web services for SMEs, including network setup, email configuration, cybersecurity support, and custom website development.</p>
-      </div>
-
-      <div class="faq-item">
-        <strong>Do you support business incorporation and consulting?</strong>
-        <p>Yes. Our services include Singapore company incorporation, licensing support, compliance advisory, and business consulting for local and foreign enterprises.</p>
+        <strong>How can I contact Engg-Tech?</strong>
+        <p>You can email us at
+        <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
+        for enquiries or project discussions.</p>
       </div>
     </section>
   `;
 
   /* ---------------------------------------
-     4. Insert Recommended + FAQ
+     5. Insert Recommended + FAQ
   ---------------------------------------- */
-  const placeholder = document.getElementById("recommended-posts");
+  const blockHTML = recommendedHTML + faqHTML;
+  const placeholder=document.getElementById("recommended-posts");
 
-  if (placeholder) {
-    placeholder.insertAdjacentHTML("beforeend", recommendedHTML + faqHTML);
-  } else {
-    const footer = document.querySelector("#site-footer");
-    if (footer) {
-      footer.insertAdjacentHTML("beforebegin", recommendedHTML + faqHTML);
-    } else {
-      document.body.insertAdjacentHTML("beforeend", recommendedHTML + faqHTML);
+  if(placeholder){
+    placeholder.insertAdjacentHTML("beforeend",blockHTML);
+  }else{
+    const footer=document.querySelector("#site-footer");
+    if(footer){
+      footer.insertAdjacentHTML("beforebegin",blockHTML);
+    }else{
+      document.body.insertAdjacentHTML("beforeend",blockHTML);
     }
   }
 
   /* ---------------------------------------
-     5. Generate Recommended Services (STATIC)
+     6. Fetch blog index & generate posts
   ---------------------------------------- */
-  const services = [
-    { title: "Fire Protection Systems", url: "https://engg-tech.com/sg/services/#fire-protection" },
-    { title: "M&E Contracting Services", url: "https://engg-tech.com/sg/services/#me" },
-    { title: "General Construction Works", url: "https://engg-tech.com/sg/services/#construction" },
-    { title: "Renovation Services", url: "https://engg-tech.com/sg/services/#renovation" },
-    { title: "Electrical & Plumbing Services", url: "https://engg-tech.com/sg/services/#electrical-plumbing" },
-    { title: "IT Support & Web Services for SMEs", url: "https://engg-tech.com/sg/services/#it-services" },
-    { title: "Business Incorporation & Consulting", url: "https://engg-tech.com/sg/services/#business-consulting" }
-  ];
+  (async function(){
+    try{
+      const res=await fetch(blogBase);
+      const html=await res.text();
+      const doc=new DOMParser().parseFromString(html,"text/html");
 
-  const selected = services.sort(() => Math.random() - 0.5).slice(0, 3);
-  const box = document.getElementById("recommendedContainer");
-  if (!box) return;
+      const posts=[...doc.querySelectorAll(`a[href*='${blogLinkMatch}']`)]
+        .map(a=>({
+          title:a.textContent.trim(),
+          url:a.href.replace(/\/$/,"")
+        }))
+        .filter(p=>!p.url.endsWith(blogBase.replace(/\/$/,"")));
 
-  selected.forEach(item => {
-    box.insertAdjacentHTML(
-      "beforeend",
-      `<a href="${item.url}" class="reco-post-link">${item.title}</a>`
-    );
-  });
+      const currentURL=window.location.href.replace(/\/$/,"");
+
+      const unique=posts
+        .filter(p=>p.url!==currentURL)
+        .filter((v,i,self)=>i===self.findIndex(t=>t.url===v.url));
+
+      const selected=unique.sort(()=>Math.random()-0.5).slice(0,3);
+
+      const box=document.getElementById("recommendedContainer");
+      if(!box)return;
+
+      selected.forEach(post=>{
+        box.insertAdjacentHTML(
+          "beforeend",
+          `<a href="${post.url}" class="reco-post-link">${post.title}</a>`
+        );
+      });
+
+    }catch(err){
+      console.error("Recommended Posts Error:",err);
+    }
+  })();
 
 });
