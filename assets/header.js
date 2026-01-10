@@ -25,16 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
     align-items:center;
   }
   .et-country-input{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    font-size:14px;
-    font-weight:600;
-    padding:4px 8px;
-    border:none;
-    background:#fff;
-    cursor:pointer;
-    white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
+  font-weight:600;
+  padding:4px 8px;
+  border:none;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  white-space:nowrap;
   }
   .et-country-dropdown{
     position:absolute;
