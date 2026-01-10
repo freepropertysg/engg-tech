@@ -1,144 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redirecting…</title>
 
-<!-- SEO BASICS -->
-<title>Engg-Tech — Engineering & Construction Services</title>
-<meta name="description" content="Engg-Tech provides engineering and construction services including fire protection, M&E works, renovation, and technical contracting across multiple countries.">
-<meta name="robots" content="index, follow">
+<meta http-equiv="refresh" content="0; url=https://www.engg-tech.com/sg/">
 
-<!-- CANONICAL -->
-<link rel="canonical" href="https://www.engg-tech.com/">
+<link rel="canonical" href="https://www.engg-tech.com/sg/">
 
-<!-- FAVICON -->
-<link rel="icon" href="/favicon.ico">
-
-<!-- EXTERNAL CSS -->
-<link rel="stylesheet" href="/assets/style.css">
-
-<!-- SITEMAP -->
-<link rel="sitemap" type="application/xml" href="https://www.engg-tech.com/sitemap.xml">
-
-<!-- SCHEMA -->
-<script defer src="/assets/schema-generator.js"></script>
+<script>
+  window.location.replace("https://www.engg-tech.com/sg/");
+</script>
 </head>
 
 <body>
-
-<!-- NAVIGATION (CENTRALISED) -->
-<div id="site-nav"></div>
-<script src="/assets/header.js"></script>
-
-<!-- MAIN LANDMARK -->
-<main>
-
-<!-- HERO (CENTRALISED) -->
-<div id="hero"></div>
-<script src="/assets/hero.js"></script>
-
-<!-- SERVICES / FEATURED CONTENT -->
-<div class="content-container">
-
-<h2>Engineering & Construction Services</h2>
-
-<!-- 1 -->
-<div class="listing-box">
-  <div class="listing-title">
-    Fire Alarm & Fire Sprinkler Installation
-  </div>
-  <div class="listing-meta">
-    Supply, installation, testing, and maintenance for commercial and industrial premises.
-  </div>
-  <div class="contact-line">
-    📩 Enquire:
-    <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
-  </div>
-</div>
-
-<!-- 2 -->
-<div class="listing-box">
-  <div class="listing-title">
-    M&E (Mechanical & Electrical) Works
-  </div>
-  <div class="listing-meta">
-    Electrical, plumbing, HVAC, and integrated M&E solutions for renovation and fit-out projects.
-  </div>
-  <div class="contact-line">
-    📩 Contact:
-    <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
-  </div>
-</div>
-
-<!-- 3 -->
-<div class="listing-box">
-  <div class="listing-title">
-    Renovation & Technical Contracting
-  </div>
-  <div class="listing-meta">
-    Small to mid-scale renovation works, coordination, and skilled manpower support.
-  </div>
-  <div class="contact-line">
-    📩 Get a quote:
-    <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
-  </div>
-</div>
-
-<!-- 4 -->
-<div class="listing-box">
-  <div class="listing-title">
-    Maintenance & Repair Services
-  </div>
-  <div class="listing-meta">
-    Preventive maintenance, rectification, and emergency technical support.
-  </div>
-  <div class="contact-line">
-    📩 Email:
-    <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
-  </div>
-</div>
-
-</div>
-</main>
-
-<!-- GLOBAL ADS / SCRIPTS -->
-<div id="site-ad"></div>
-<script src="/assets/scripts.js"></script>
-
-<!-- FOOTER -->
-<div id="site-footer"></div>
-<script src="/assets/footer.js"></script>
-
-<!-- SAFE AUTO GEO REDIRECT (COUNTRY PATH ONLY IF EXISTS) -->
-<script>
-(function () {
-  // Never redirect search engine bots
-  if (/Googlebot|Bingbot|Slurp|DuckDuckBot/i.test(navigator.userAgent)) return;
-
-  const api = "https://ipapi.co/json/";
-  const base = "https://www.engg-tech.com/";
-
-  fetch(api)
-    .then(r => r.json())
-    .then(d => {
-      const code = (d.country_code || "").toLowerCase();
-      if (!code) return;
-
-      const target = base + code + "/";
-
-      // Redirect ONLY if country folder exists
-      fetch(target, { method: "HEAD" })
-        .then(res => {
-          if (res.ok) {
-            window.location.replace(target);
-          }
-        })
-        .catch(() => {});
-    })
-    .catch(() => {});
-})();
-</script>
-
+<p>Redirecting to <a href="https://www.engg-tech.com/sg/">https://www.engg-tech.com/sg/</a></p>
 </body>
 </html>

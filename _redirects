@@ -1,0 +1,13 @@
+# =========================================
+# Engg-Tech.com — Netlify Redirect Rules
+# =========================================
+
+# 1) Force extensionless URLs to .html
+/*[^.]$  /:splat.html  301
+
+# 2) Redirect index.html to root
+/index.html  /  301
+
+# =========================================
+# End of redirects
+# =========================================
