@@ -32,13 +32,12 @@ let urls = [];
    ROOT PAGES
 ================================ */
 urls.push(
-  urlBlock(`${SITE_URL}/`, "1.0", "daily"),
-  urlBlock(`${SITE_URL}/about/`, "0.8", "monthly"),
-  urlBlock(`${SITE_URL}/listings/`, "0.9", "daily"),
-  urlBlock(`${SITE_URL}/contact/`, "0.6", "monthly"),
-  urlBlock(`${SITE_URL}/posting-guidelines/`, "0.4", "yearly"),
-  urlBlock(`${SITE_URL}/privacy-policy/`, "0.3", "yearly"),
-  urlBlock(`${SITE_URL}/terms/`, "0.3", "yearly")
+  urlBlock(`${SITE_URL}/`, "1.0", "weekly"),
+  urlBlock(`${SITE_URL}/about-us/`, "0.8", "monthly"),
+  urlBlock(`${SITE_URL}/services/`, "0.9", "weekly"),
+  urlBlock(`${SITE_URL}/projects/`, "0.8", "monthly"),
+  urlBlock(`${SITE_URL}/contact-us/`, "0.6", "monthly"),
+  urlBlock(`${SITE_URL}/privacy-policy/`, "0.3", "yearly")
 );
 
 /* ==============================
