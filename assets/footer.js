@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <h2 class="footer-heading">Contact Us</h2>
       <p>Email us today for trusted support in Singapore</p>
       <p><a href="mailto:info@engg-tech.com">info@engg-tech.com</a></p>
-      <a class="footer-btn" href="https://engg-tech.com/sg/contact-us/">
+      <a class="footer-btn" href="https://engg-tech.com/contact-us/">
         Request with Online Form
       </a>
     </div>
@@ -51,12 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <p>
       © 2015–<span id="copyYear"></span> Engg-Tech Construction Pte. Ltd. All rights reserved. |
-      <a href="https://engg-tech.com/sg/privacy-policy/">Privacy Policy</a>
+      <a href="https://engg-tech.com/privacy-policy/">Privacy Policy</a>
     </p>
 
     <p>
       Designed &amp; Maintained by
-      <a href="https://engg-tech.com/sg/">Engg-Tech Singapore</a>
+      <a href="https://engg-tech.com/">Engg-Tech Singapore</a>
     </p>
 
     <p><em id="lastUpdated"></em></p>
