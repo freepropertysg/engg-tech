@@ -104,21 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="nav-container">
 
       <a href="${base || "/"}" class="nav-logo"
-       style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
-        <span style="font-size:16px;font-family:Poppins,sans-serif;">
-          <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">E</span>
-          <span style="font-weight:600;color:#2563EB;">ngg</span>
-          <span style="font-weight:600;color:#14B8A6;">Tech</span>
-          <span style="font-weight:400;color:#9CA3AF;">.com</span>
-        </span>
-        <span style="font-size:11.5px;font-weight:500;font-family:Poppins,sans-serif;color:#4B5563;letter-spacing:0.2px;">
-          Engineering & construction services
-        </span>
-        <span style="font-size:10.5px;font-weight:400;font-family:Poppins,sans-serif;color:#6B7280;">
-          Contractors · Trade services · Industry listings
-        </span>
-      </a>
-
+   style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
+  <span style="font-size:16px;font-family:Poppins,sans-serif;">
+    <span style="font-weight:600;color:#2563EB;">Engg</span><span style="font-weight:600;color:#14B8A6;">-Tech</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
+  </span>
+  <span style="font-size:11.5px;font-weight:500;font-family:Poppins,sans-serif;color:#4B5563;letter-spacing:0.2px;">
+    Engineering & construction services
+  </span>
+  </a>
       <span class="menu-toggle">☰</span>
 
       <ul class="nav-menu">
