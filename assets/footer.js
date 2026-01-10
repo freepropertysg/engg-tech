@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded",()=>{
 const footerHTML=`
 <footer style="text-align:center;font-size:0.9rem;">
 
-  <p style="margin:0.2rem 0;">
-    © <span id="copyYear"></span> Engg-Tech — Engineering & Construction Services Platform
-  </p>
+
+   <p>
+      © 2015–<span id="copyYear"></span> Engg-Tech Construction Pte. Ltd. All rights reserved.
+   </p>
 
   <p style="margin:0.2rem 0;">
   <a href="https://engg-tech.com/about/"
@@ -19,31 +20,29 @@ const footerHTML=`
   <a href="https://engg-tech.com/privacy-policy/"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
-     onmouseout="this.style.color='inherit'">Privacy Policy</a> |
-  <a href="https://engg-tech.com/terms/"
-     style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#ff6a00'"
-     onmouseout="this.style.color='inherit'">Terms of Service</a> |
-  <a href="https://engg-tech.com/posting-guidelines/"
-     style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#ff6a00'"
-     onmouseout="this.style.color='inherit'">Posting Guidelines</a>
-</p>
+     onmouseout="this.style.color='inherit'">Privacy Policy</a>
+   </p>
 
   <p style="margin:0.2rem 0;">
-  <a href="https://www.facebook.com/enggtechofficial"
+  <a href="https://facebook.com/enggtech"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
      onmouseout="this.style.color='inherit'">Facebook</a> |
-  <a href="https://www.instagram.com/enggtechofficial/"
+  <a href="https://instagram.com/enggtechofficial"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
      onmouseout="this.style.color='inherit'">Instagram</a> |
-  <a href="https://www.youtube.com/@enggtechofficial"
+  <a href="https://youtube.com/@enggtechofficial"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">YouTube</a> |
+     <a href="https://linkedin.com/company/enggtechofficial"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
@@ -71,17 +70,6 @@ const footerHTML=`
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
       onload="document.querySelectorAll('script[data-exec]:not([data-ran])').forEach(s=>{let n=document.createElement('script');n.text=s.textContent;document.body.appendChild(n);s.dataset.ran=1;});">
   </p>
-
-  <p style="
-  max-width:720px;
-  margin:0.4rem auto;
-  font-size:0.75rem;
-  opacity:0.85;
-">
-  Engg-Tech.com is an independent engineering and construction services platform. “Engg-Tech” is a coined brand name used solely to identify this platform and is not affiliated with, endorsed by, sponsored by, or connected to any other company, organisation, trademark, or service. Any similarity in names, products, or services is purely coincidental.
-  <br>Listings and content are submitted by users or partners. Engg-Tech does not endorse, verify, or guarantee such content. To report an issue or request removal, please contact
-  <a href="mailto:admin@engg-tech.com" style="color:inherit;text-decoration:underline;">admin@engg-tech.com</a>
-</p>
 </footer>
 `;
 
