@@ -1,6 +1,9 @@
-# ✅ Allow all major search engines 
+# ===============================
+# ✅ Allow major search engines
+# ===============================
+
 User-agent: Googlebot
-Disallow: /assets/footer.html
+Disallow:
 
 User-agent: Bingbot
 Disallow:
@@ -14,7 +17,11 @@ Disallow:
 User-agent: Baiduspider
 Disallow:
 
-# 🚫 Block AI bots and known scrapers
+
+# ===============================
+# 🚫 Block AI bots & scrapers
+# ===============================
+
 User-agent: GPTBot
 Disallow: /
 
@@ -57,9 +64,17 @@ Disallow: /
 User-agent: PetalBot
 Disallow: /
 
-# 🧭 Sitemap
-Sitemap: https://engg-tech.com/sitemap.xml
 
-# ✅ Default rule — allow everyone else
+# ===============================
+# 🧭 Sitemap Location
+# ===============================
+
+Sitemap: https://postfre.com/sg/sitemap.xml
+
+
+# ===============================
+# ✅ Default rule — allow others
+# ===============================
+
 User-agent: *
-Disallow:
+Allow: /sg/

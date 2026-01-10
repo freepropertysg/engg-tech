@@ -5,17 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- SEO BASICS -->
-<title>Engg-Tech Blog — Construction & Services Insights Singapore</title>
-<meta name="description" content="Engg-Tech Construction blog covering fire protection, electrical, plumbing, renovation, handyman, and IT services in Singapore. Practical guides and insights.">
+<title>Singapore Blog — Insights & Guides | PostFre</title>
+<meta name="description" content="Singapore insights blog covering buying and selling tips, jobs, services, rentals, renovation, pricing guides and marketplace essentials on PostFre.">
 <meta name="robots" content="index, follow">
 
-<!-- Favicon -->
-<link rel="icon" href="https://engg-tech.com/assets/favicon/favicon.ico">
+<!-- FAVICON -->
+<link rel="icon" href="/favicon.ico">
 
-<!-- External CSS -->
+<!-- EXTERNAL CSS -->
 <link rel="stylesheet" href="/assets/style.css">
-<link rel="sitemap" type="application/xml" href="https://engg-tech.com/sitemap.xml">
+
+<!-- SITEMAP -->
+<link rel="sitemap" type="application/xml" href="https://postfre.com/sitemap.xml" />
+
+<!-- SCHEMA (AUTO CANONICAL HANDLED HERE) -->
 <script defer src="/assets/schema-generator.js"></script>
+
+<style>
+/* REMOVE BULLETS — ONLY CHANGE MADE */
+.blog-list {
+  list-style: none;
+  padding-left: 0;
+}
+</style>
 </head>
 
 <body>
@@ -27,35 +39,25 @@
 <!-- MAIN SECTION -->
 <main>
 
-<!-- EXACT ORIGINAL SPACING -->
-<div style="padding-left:1.5rem;padding-right:1.5rem;box-sizing:border-box;">
+<!-- HERO (CENTRALISED) -->
+<div id="hero"></div>
+<script src="/assets/hero.js"></script>
+
+<div class="content-container">
 
 <h2>Blog</h2>
+
+<p>
+Read guides and insights on property, jobs, services, rentals, and the Singapore marketplace.
+</p>
 
 <section class="blog-section">
 
 <!-- BLOG-LIST-START -->
 <ul class="blog-list">
-  <li><a href="/sg/blog/affordable-seo-services">Affordable Seo Services</a></li>
-  <li><a href="/sg/blog/db-box-singapore">Db Box Singapore</a></li>
-  <li><a href="/sg/blog/door-varnish">Door Varnish</a></li>
-  <li><a href="/sg/blog/drain-choke">Drain Choke</a></li>
-  <li><a href="/sg/blog/fan-installation-singapore">Fan Installation Singapore</a></li>
-  <li><a href="/sg/blog/fire-alarm-singapore">Fire Alarm Singapore</a></li>
-  <li><a href="/sg/blog/fire-blanket-singapore">Fire Blanket Singapore</a></li>
-  <li><a href="/sg/blog/fire-hose-reel-singapore">Fire Hose Reel Singapore</a></li>
-  <li><a href="/sg/blog/fire-suppression-system-singapore">Fire Suppression System Singapore</a></li>
-  <li><a href="/sg/blog/hdb-resale-renovation-package">Hdb Resale Renovation Package</a></li>
-  <li><a href="/sg/blog/it-infrastructure-setup">It Infrastructure Setup</a></li>
-  <li><a href="/sg/blog/local-seo-services-singapore">Local Seo Services Singapore</a></li>
-  <li><a href="/sg/blog/plumber-fees">Plumber Fees</a></li>
-  <li><a href="/sg/blog/rubbish-chute-repair">Rubbish Chute Repair</a></li>
-  <li><a href="/sg/blog/self-contained-breathing-apparatus">Self Contained Breathing Apparatus</a></li>
-  <li><a href="/sg/blog/toilet-bowl-flushing-system">Toilet Bowl Flushing System</a></li>
-  <li><a href="/sg/blog/toilet-bowl-replacement-singapore">Toilet Bowl Replacement Singapore</a></li>
-  <li><a href="/sg/blog/toilet-renovation-singapore">Toilet Renovation Singapore</a></li>
-  <li><a href="/sg/blog/wall-painting-singapore">Wall Painting Singapore</a></li>
-  <li><a href="/sg/blog/window-rubber-seal">Window Rubber Seal</a></li>
+  <li><a href="/sg/blog/absd-singapore">Absd Singapore</a></li>
+  <li><a href="/sg/blog/rental-yield-calculator-singapore">Rental Yield Calculator Singapore</a></li>
+  <li><a href="/sg/blog/srx-x-value">Srx X Value</a></li>
 </ul>
 <!-- BLOG-LIST-END -->
 
@@ -65,7 +67,7 @@
 
 </main>
 
-<!-- Global Ads & Analytics -->
+<!-- GLOBAL SCRIPTS -->
 <div id="site-ad"></div>
 <script src="/assets/scripts.js"></script>
 
@@ -73,15 +75,13 @@
 <div id="site-footer"></div>
 <script src="/assets/footer.js"></script>
 
-</body>
-</html>
-
-<!-- AUTO NUMBERING (SAME AS ORIGINAL) -->
+<!-- AUTO NUMBERING SCRIPT -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll(".blog-list li a");
+
   links.forEach((link, index) => {
-    if (!/^\d+\.\s/.test(link.textContent)) {
+    if (!link.textContent.match(/^\\d+\\.\\s/)) {
       link.textContent = (index + 1) + ". " + link.textContent;
     }
   });

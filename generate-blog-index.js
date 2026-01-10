@@ -53,6 +53,6 @@ const updated = html.replace(
 // ===============================
 // WRITE BACK
 // ===============================
-fs.writeFileSync(INDEX_FILE, updated, "utf8");
+fs.writeFileSync(INDEX_FILE, updated);
 
 console.log("✅ Blog index updated: /sg/blog/index.html");

@@ -4,7 +4,7 @@ const path = require("path");
 // ===============================
 // CONFIG
 // ===============================
-const SITE_URL = "https://engg-tech.com";
+const SITE_URL = "https://postfre.com";
 const ROOT_DIR = __dirname;
 
 // today as YYYY-MM-DD
@@ -32,11 +32,11 @@ let urls = [];
    ROOT PAGES
 ================================ */
 urls.push(
-  urlBlock(`${SITE_URL}/`, "1.0", "weekly"),
-  urlBlock(`${SITE_URL}/about-us/`, "0.8", "monthly"),
-  urlBlock(`${SITE_URL}/services/`, "0.9", "weekly"),
-  urlBlock(`${SITE_URL}/projects/`, "0.8", "monthly"),
-  urlBlock(`${SITE_URL}/contact-us/`, "0.6", "monthly"),
+  urlBlock(`${SITE_URL}/`, "1.0", "daily"),
+  urlBlock(`${SITE_URL}/about/`, "0.8", "monthly"),
+  urlBlock(`${SITE_URL}/listings/`, "0.9", "daily"),
+  urlBlock(`${SITE_URL}/contact/`, "0.6", "monthly"),
+  urlBlock(`${SITE_URL}/posting-guidelines/`, "0.4", "yearly"),
   urlBlock(`${SITE_URL}/privacy-policy/`, "0.3", "yearly"),
   urlBlock(`${SITE_URL}/terms/`, "0.3", "yearly")
 );
@@ -63,7 +63,7 @@ if (fs.existsSync(rootBlogDir)) {
 
 /* ==============================
    AUTO-DETECT COUNTRY FOLDERS
-   (sg, my, ph, etc.)
+   (sg, my, bd, us, etc.)
 ================================ */
 fs.readdirSync(ROOT_DIR, { withFileTypes: true })
   .filter(
@@ -80,12 +80,6 @@ fs.readdirSync(ROOT_DIR, { withFileTypes: true })
     // Country homepage
     urls.push(
       urlBlock(`${SITE_URL}/${code}/`, "0.9", "weekly")
-    );
-
-    // Country static pages
-    urls.push(
-      urlBlock(`${SITE_URL}/${code}/services/`, "0.8", "weekly"),
-      urlBlock(`${SITE_URL}/${code}/projects/`, "0.7", "monthly")
     );
 
     // Country blog
@@ -114,6 +108,6 @@ ${urls.join("")}
 </urlset>
 `;
 
-fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), sitemap, "utf8");
+fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), sitemap);
 
-console.log("✅ Sitemap generated successfully (ENGG-TECH root + blog + countries)");
+console.log("✅ Sitemap generated successfully (root + blog + countries)");

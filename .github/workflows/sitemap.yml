@@ -29,5 +29,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add sg/blog/index.html sitemap.xml
-          git commit -m "Auto update Engg-Tech SG blog index and sitemap" || echo "No changes"
+          git commit -m "Auto update SG blog index and sitemap" || echo "No changes"
           git push
