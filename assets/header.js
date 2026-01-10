@@ -1,7 +1,18 @@
+// =============================
+// Load Google Font (once)
+// =============================
+if (!document.getElementById("poppins-font")) {
+  const l = document.createElement("link");
+  l.id = "poppins-font";
+  l.rel = "stylesheet";
+  l.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap";
+  document.head.appendChild(l);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =============================
-     COUNTRY BASE LOGIC
+     COUNTRY BASE LOGIC (IDENTICAL)
   ============================== */
   let parts = location.pathname.split("/").filter(Boolean);
   let seg = parts[0] || "";
@@ -12,10 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let saved = localStorage.getItem("et_country");
   let base = isCountry ? `/${seg}` : (saved ? `/${saved}` : "");
 
-  const BASE_URL = "https://engg-tech.com/";
-
   /* =============================
-     INLINE CSS (COUNTRY SELECTOR)
+     INLINE CSS (MATCHED STYLE)
   ============================== */
   const style = document.createElement("style");
   style.textContent = `
@@ -24,19 +33,23 @@ document.addEventListener("DOMContentLoaded", () => {
     display:flex;
     align-items:center;
   }
+
   .et-country-input{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  font-size:14px;
-  font-weight:600;
-  padding:4px 8px;
-  border:none;
-  background:transparent;
-  color:#fff;
-  cursor:pointer;
-  white-space:nowrap;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:16px;
+    font-weight:600;
+    line-height:1;
+    padding:4px 8px;
+    border:none;
+    border-radius:4px;
+    background:#fff;
+    cursor:pointer;
+    white-space:nowrap;
+    width:auto;
   }
+
   .et-country-dropdown{
     position:absolute;
     top:110%;
@@ -48,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     box-shadow:0 4px 14px rgba(0,0,0,.12);
     z-index:9999;
   }
+
   .et-country-search{
     width:100%;
     padding:6px 8px;
@@ -57,45 +71,60 @@ document.addEventListener("DOMContentLoaded", () => {
     font-size:14px;
     box-sizing:border-box;
   }
+
   .et-country-list{
     max-height:240px;
     overflow-y:auto;
   }
+
   .et-country-item{
     padding:6px 10px;
     cursor:pointer;
   }
+
   .et-country-item:hover{
     background:#f3f4f6;
+  }
+
+  @media (max-width:768px){
+    .et-country-input{
+      font-size:18px;
+      padding:10px 0;
+      border:none;
+    }
   }
   `;
   document.head.appendChild(style);
 
   /* =============================
-     NAVIGATION HTML
+     NAV HTML (STRUCTURE MATCHED)
   ============================== */
   const navHTML = `
-<nav class="navbar-custom" aria-label="Main Navigation">
-  <div class="navbar-container">
+  <nav class="navbar">
+    <div class="nav-container">
 
-    <a href="${base || "/sg/"}" class="navbar-brand nav-link">
-      ENGG-TECH.COM
-    </a>
+      <a href="${base || "/"}" class="nav-logo"
+       style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
+        <span style="font-size:16px;font-family:Poppins,sans-serif;font-weight:600;color:#0F172A;">
+          ENGG-TECH.COM
+        </span>
+        <span style="font-size:11.5px;font-weight:500;font-family:Poppins,sans-serif;color:#334155;">
+          Fire Protection & M&E Contractor
+        </span>
+        <span style="font-size:10.5px;font-weight:400;font-family:Poppins,sans-serif;color:#64748B;">
+          Singapore-based engineering services
+        </span>
+      </a>
 
-    <span class="menu-toggle"
-          aria-controls="navbarMenu"
-          aria-expanded="false"
-          role="button"
-          tabindex="0">☰</span>
+      <span class="menu-toggle">☰</span>
 
-    <div class="navbar-nav">
-      <ul id="navbarMenu">
-        <li><a class="nav-link" href="${base || "/sg/"}">Home</a></li>
-        <li><a class="nav-link" href="/about-us/">About</a></li>
-        <li><a class="nav-link" href="${base}/services/">Services</a></li>
-        <li><a class="nav-link" href="${base}/projects/">Projects</a></li>
-        <li><a class="nav-link" href="${base}/blog/">Blog</a></li>
-        <li><a class="nav-link" href="/contact-us/">Contact</a></li>
+      <ul class="nav-menu">
+        <li><a href="${base || "/"}">HOME</a></li>
+        <li><a href="/about-us/">ABOUT</a></li>
+        <li><a href="${base}/services/">SERVICES</a></li>
+        <li><a href="${base}/projects/">PROJECTS</a></li>
+        <li><a href="${base}/blog/">BLOG</a></li>
+        <li><a href="/contact-us/">CONTACT</a></li>
 
         <li class="et-country-wrap">
           <div class="et-country-input" id="etCountryInput">
@@ -107,40 +136,30 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </li>
       </ul>
-    </div>
 
-  </div>
-</nav>
+    </div>
+  </nav>
   `;
 
   document.getElementById("site-nav").innerHTML = navHTML;
 
   /* =============================
-     ACTIVE LINK
+     ACTIVE LINK (SAME LOGIC)
   ============================== */
-  const links = document.querySelectorAll(".nav-link:not(.navbar-brand)");
+  const links = document.querySelectorAll(".nav-menu a");
   let current = location.pathname.replace(/\/$/, "") || "/";
 
-  links.forEach(link => {
-    let href = new URL(link.href).pathname.replace(/\/$/, "") || "/";
-    if (href === current) link.classList.add("active");
+  links.forEach(a => {
+    let h = a.getAttribute("href").replace(/\/$/, "") || "/";
+    if (h === current) a.classList.add("active");
   });
 
   /* =============================
-     MOBILE MENU
+     MOBILE MENU (IDENTICAL)
   ============================== */
   const toggle = document.querySelector(".menu-toggle");
-  const menu = document.getElementById("navbarMenu");
-
-  if (toggle && menu) {
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("show");
-      toggle.setAttribute(
-        "aria-expanded",
-        toggle.getAttribute("aria-expanded") !== "true"
-      );
-    });
-  }
+  const menu = document.querySelector(".nav-menu");
+  if (toggle) toggle.onclick = () => menu.classList.toggle("show");
 
   /* =============================
      COUNTRY SELECTOR LOGIC
@@ -150,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdown = document.getElementById("etCountryDropdown");
   const listBox = document.getElementById("etCountryList");
   const search = document.getElementById("etCountrySearch");
+  const BASE_URL = "https://engg-tech.com/";
 
   function flag(code){
     return code.toUpperCase().replace(/./g,c=>String.fromCodePoint(127397+c.charCodeAt()));
@@ -163,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", () => dropdown.hidden = true);
 
-  /* Load saved country label */
   if (saved) {
     fetch("https://restcountries.com/v3.1/alpha/" + saved)
       .then(r => r.json())
@@ -171,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(()=>{});
   }
 
-  /* Load countries */
   fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
     .then(r=>r.json())
     .then(countries=>{
