@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </p>
       <p>
         <a class="footer-blog-link"
-           href="https://engg-tech.com/sg/blog/"
+           href="https://engg-tech.com/blog/"
            title="Engg-Tech Singapore fire protection and M&E blog">
           Read Our Latest Articles →
         </a>
