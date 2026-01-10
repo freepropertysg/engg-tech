@@ -42,12 +42,12 @@ const footerHTML=`
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
      onmouseout="this.style.color='inherit'">YouTube</a> |
-     <a href="https://linkedin.com/company/enggtechofficial"
+   <a href="https://linkedin.com/company/enggtechofficial"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
-     onmouseout="this.style.color='inherit'">YouTube</a>
+     onmouseout="this.style.color='inherit'">LinkedIn</a>
   </p>
 
   <p style="margin:0.2rem 0;">
