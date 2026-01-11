@@ -43,8 +43,8 @@ style="
 
   <h3 id="greeting" style="margin-top:0;color:#000000;">Hello!</h3>
   <p>
-  Start a live chat with our team.<br>
-  Enter your details and message below to begin.
+    Start a live chat with our team.<br>
+    Enter your details and message below to begin.
   </p>
 
   <input type="text" id="chatHoneypot" style="display:none" autocomplete="off">
@@ -157,13 +157,14 @@ function sendChatMessage() {
     return;
   }
 
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("message", message);
+
   fetch("https://script.google.com/macros/s/AKfycbwkIbW2EzsoG54Adydc0UwnN34au15dm2vnn3Egfhrq69n8HiEdGUgIJQ0riPGLe5k/exec", {
     method: "POST",
-    body: new FormData(Object.assign(document.createElement("form"), {
-      name: { value: name },
-      email: { value: email },
-      message: { value: message }
-    }))
+    body: formData
   });
 
   localStorage.setItem(cooldownKey, Date.now().toString());
