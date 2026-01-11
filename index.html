@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About Engg-Tech Construction Pte. Ltd. – Certified fire protection, M&E, and renovation contractor in Singapore since 2015." />
-  <title>About Engg-Tech Construction Pte. Ltd. | Singapore Contractor</title>
+  <meta name="description"
+  content="Singapore fire protection and M&E contractor providing fire alarm, sprinkler, renovation, electrical and plumbing services." />
+  <title>Fire Protection & M&E Contractor in Singapore | Engg-Tech Construction</title>
   <!-- ✅ Favicon -->
   <link rel="shortcut icon" href="https://engg-tech.com//sg/assets/favicon/favicon.ico" type="image/x-icon">
   <meta name="theme-color" content="#ffffff">
@@ -27,14 +28,6 @@
 <div style="padding-left: 1.5rem; padding-right: 1.5rem; box-sizing: border-box;">
 <section>
 <!-- Live Chat -->
-<noscript>
-  <p style="text-align:center; font-size:0.95rem; padding:1rem;">
-    Contact our support team at
-    <a href="mailto:info@engg-tech.com" style="color:#007bff;">info@engg-tech.com</a>
-    if chat is unavailable.
-  </p>
-</noscript>
-
 <div id="chatBox" role="region" aria-label="Live chat support"
 style="
   position:relative;
@@ -175,7 +168,7 @@ function sendChatMessage() {
 
   localStorage.setItem(cooldownKey, Date.now().toString());
 
-  responseDiv.textContent = "Connecting with Engg-Tech Team…";
+  responseDiv.innerHTML = `<span class="spinning-icon"></span> Connecting with Engg-Tech Team…`;
 
   setTimeout(() => {
     responseDiv.innerHTML = `
@@ -192,6 +185,25 @@ function sendChatMessage() {
     (h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening") + "!";
 })();
 </script>
+
+<style>
+.spinning-icon {
+  display:inline-block;
+  width:16px;
+  height:16px;
+  margin-right:6px;
+  border:3px solid #007bff;
+  border-radius:50%;
+  border-top-color:transparent;
+  animation:spin 0.8s linear infinite;
+  vertical-align:middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 <!-- Live Chat END -->
 </section>
 </div>
