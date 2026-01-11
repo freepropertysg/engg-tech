@@ -39,23 +39,19 @@ document.addEventListener("DOMContentLoaded", () => {
      ACTIVE LINK LOGIC
   ---------------------------------------- */
   const links = document.querySelectorAll(".nav-link:not(.navbar-brand)");
-  let current = window.location.pathname;
+let current = window.location.pathname.replace(/\/$/, "") || "/";
 
-  if (current.length > 1 && current.endsWith("/")) {
-    current = current.slice(0, -1);
+links.forEach(link => {
+  let href = new URL(link.href).pathname.replace(/\/$/, "") || "/";
+
+  // HOME fix: root "/" should activate /sg/
+  if (current === "/" && href === "/sg") {
+    link.classList.add("active");
   }
-
-  links.forEach(link => {
-    let href = new URL(link.href).pathname;
-
-    if (href.length > 1 && href.endsWith("/")) {
-      href = href.slice(0, -1);
-    }
-
-    if (href === current) {
-      link.classList.add("active");
-    }
-  });
+  else if (href === current) {
+    link.classList.add("active");
+  }
+});
 
   /* ---------------------------------------
      MOBILE MENU TOGGLE
