@@ -32,6 +32,7 @@ let urls = [];
 // === STATIC PAGES (SG) ===
 urls.push(
   urlBlock(`${SITE_URL}/`, "1.0", "weekly"),
+  urlBlock(`${SITE_URL}${BASE_PATH}/`, "1.0", "weekly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/about/`, "0.8", "monthly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/services/`, "0.9", "weekly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/projects/`, "0.8", "monthly"),
