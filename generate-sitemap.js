@@ -31,14 +31,13 @@ let urls = [];
 
 // === STATIC PAGES (SG) ===
 urls.push(
-  urlBlock(`${SITE_URL}${BASE_PATH}/`, "1.0", "weekly"),
+  urlBlock(`${SITE_URL}/`, "1.0", "weekly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/about/`, "0.8", "monthly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/services/`, "0.9", "weekly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/projects/`, "0.8", "monthly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/blog/`, "0.7", "weekly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/contact-us/`, "0.6", "monthly"),
   urlBlock(`${SITE_URL}${BASE_PATH}/privacy-policy/`, "0.3", "yearly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/terms/`, "0.3", "yearly")
 );
 
 // === BLOG POSTS (SG) ===
