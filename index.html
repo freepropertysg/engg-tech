@@ -63,11 +63,7 @@
 <section>
 
   <!-- Live Chat -->
-<div class="sticky-box sticky-livechat" id="stickyLiveChatBox" onclick="document.getElementById('liveChatPopup').style.display='flex'">
-  <button class="sticky-close" aria-label="Close chat popup" onclick="event.stopPropagation(); document.getElementById('stickyLiveChatBox').style.display='none'">×</button>
-  <strong>Need help?</strong>
-  <span>Chat with our support team.</span>
-</div>
+<!-- 💬 Live Chat (Direct Display – No Popup) -->
 
 <noscript>
   <p style="text-align:center; font-size:0.95rem; padding:1rem;">
@@ -77,32 +73,78 @@
   </p>
 </noscript>
 
-<!-- 💬 Popup Chat Box -->
-<div id="liveChatPopup" role="dialog" aria-label="Live chat support popup" style="display:none; position:fixed; z-index:10000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
-  <div id="chatBox" style="background:#fff; padding:20px 35px 20px 20px; border-radius:12px; max-width:400px; width:90%; font-family:sans-serif; box-shadow:0 4px 20px rgba(0,0,0,0.2); position:relative;">
-    <span id="chatCloseBtn" onclick="document.getElementById('liveChatPopup').style.display='none'" style="position:absolute; top:20px; right:20px; background:#ff4d4f; color:#fff; font-weight:bold; border-radius:50%; width:24px; height:24px; text-align:center; line-height:24px; cursor:pointer;">×</span>
+<div id="chatBox" role="dialog" aria-label="Live chat support"
+style="
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:10000;
+  background:#fff;
+  padding:20px 35px 20px 20px;
+  border-radius:12px;
+  max-width:400px;
+  width:90%;
+  font-family:sans-serif;
+  box-shadow:0 4px 20px rgba(0,0,0,0.2);
+">
 
-    <h3 id="greeting" style="margin-top:0; color:#d11a2a;">Hello!</h3>
-    <p>Welcome to our live chat!<br />Please enter your details and message below.</p>
+  <span id="chatCloseBtn"
+    onclick="document.getElementById('chatBox').style.display='none'"
+    style="
+      position:absolute;
+      top:15px;
+      right:15px;
+      background:#ff4d4f;
+      color:#fff;
+      font-weight:bold;
+      border-radius:50%;
+      width:24px;
+      height:24px;
+      text-align:center;
+      line-height:24px;
+      cursor:pointer;
+    ">×</span>
 
-    <input type="text" id="chatHoneypot" style="display:none;" autocomplete="off" />
-    <input type="text" id="chatName" placeholder="Your Name" style="width:100%; padding:8px; margin-bottom:8px; border:1px solid #ccc; border-radius:6px;" />
-    <input type="email" id="chatEmail" placeholder="Your Email" style="width:100%; padding:8px; margin-bottom:8px; border:1px solid #ccc; border-radius:6px;" />
-    <textarea id="chatMessage" placeholder="Your Enquiry..." style="width:100%; height:80px; padding:8px; border:1px solid #ccc; border-radius:6px; resize: none;"></textarea>
+  <h3 id="greeting" style="margin-top:0;color:#d11a2a;">Hello!</h3>
+  <p>Welcome to our live chat!<br>Please enter your details and message below.</p>
 
-    <div style="margin-top:10px;">
-      <label for="chatCaptcha">What is <span id="chatCaptchaQ">1 + 1</span>?</label>
-      <input type="number" id="chatCaptcha" required style="width:100%; padding:8px; margin-top:4px; border:1px solid #ccc; border-radius:6px;" />
-    </div>
+  <input type="text" id="chatHoneypot" style="display:none" autocomplete="off">
 
-    <button id="chatSendBtn" onclick="sendChatMessage()" style="margin-top:10px; background:#007bff; color:#fff; border:none; padding:10px 20px; border-radius:6px; font-size:1rem; cursor:pointer;">Send</button>
+  <input type="text" id="chatName" placeholder="Your Name"
+    style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px;">
 
-    <div id="cooldownMsg" style="margin-top:10px; font-size:0.9rem; color:#c00; display:none;"></div>
-    <div id="chatResponse" style="margin-top:20px; font-size:0.95rem; color:#333;"></div>
+  <input type="email" id="chatEmail" placeholder="Your Email"
+    style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px;">
+
+  <textarea id="chatMessage" placeholder="Your Enquiry..."
+    style="width:100%;height:80px;padding:8px;border:1px solid #ccc;border-radius:6px;resize:none;"></textarea>
+
+  <div style="margin-top:10px;">
+    <label>What is <span id="chatCaptchaQ">1 + 1</span>?</label>
+    <input type="number" id="chatCaptcha" required
+      style="width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:6px;">
   </div>
+
+  <button id="chatSendBtn" onclick="sendChatMessage()"
+    style="
+      margin-top:10px;
+      background:#007bff;
+      color:#fff;
+      border:none;
+      padding:10px 20px;
+      border-radius:6px;
+      font-size:1rem;
+      cursor:pointer;
+    ">Send</button>
+
+  <div id="cooldownMsg"
+    style="margin-top:10px;font-size:0.9rem;color:#c00;display:none;"></div>
+
+  <div id="chatResponse"
+    style="margin-top:15px;font-size:0.95rem;color:#333;"></div>
+
 </div>
 
-<!-- 💬 Script -->
 <script data-exec>
 let correctAnswer, x, y, chatFormStart = Date.now();
 const cooldownKey = "enggtech_chat_last_submit";
@@ -125,12 +167,10 @@ function checkCooldown() {
   const now = Date.now();
   const btn = document.getElementById("chatSendBtn");
   const msg = document.getElementById("cooldownMsg");
-  const closeBtn = document.getElementById("chatCloseBtn");
 
   if (last && now - parseInt(last) < 3600000) {
     const remaining = 3600000 - (now - parseInt(last));
     btn.style.display = "none";
-    closeBtn.style.display = "inline-block";
     msg.style.display = "block";
     msg.textContent = "⏳ Next chat available in " + formatTime(remaining);
 
@@ -150,237 +190,57 @@ function checkCooldown() {
 checkCooldown();
 
 function sendChatMessage() {
-  const name = document.getElementById("chatName").value.trim();
-  const email = document.getElementById("chatEmail").value.trim();
-  const message = document.getElementById("chatMessage").value.trim();
-  const honeypot = document.getElementById("chatHoneypot").value.trim();
-  const answer = parseInt(document.getElementById("chatCaptcha").value);
-  const responseDiv = document.getElementById("chatResponse");
-  const sendBtn = document.getElementById("chatSendBtn");
-  const closeBtn = document.getElementById("chatCloseBtn");
+  const name = chatName.value.trim();
+  const email = chatEmail.value.trim();
+  const message = chatMessage.value.trim();
+  const honeypot = chatHoneypot.value.trim();
+  const answer = parseInt(chatCaptcha.value);
+  const responseDiv = chatResponse;
 
-  if (honeypot !== "") {
-    responseDiv.innerHTML = "<span style='color:red;'>⚠️ Spam detected. Submission blocked.</span>";
-    return;
-  }
+  if (honeypot !== "") return;
 
-  const delayCheck = Date.now() - chatFormStart;
-  if (delayCheck < 3000) {
-    responseDiv.innerHTML = "<span style='color:orange;'>⏱️ Please wait a moment before sending your message.</span>";
+  if (Date.now() - chatFormStart < 3000) {
+    responseDiv.innerHTML = "⏱️ Please wait a moment before sending.";
     return;
   }
 
   if (answer !== correctAnswer) {
-    responseDiv.innerHTML = "<span style='color:orange;'>❌ Incorrect answer. Please try again.</span>";
+    responseDiv.innerHTML = "❌ Incorrect answer. Please try again.";
     return;
   }
 
   if (!name || !email || !message) {
-    responseDiv.innerHTML = "<span style='color:red;'>Please fill in all fields before sending.</span>";
+    responseDiv.innerHTML = "Please fill in all fields.";
     return;
   }
-
-  // Email format check (added)
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    responseDiv.innerHTML = "<span style='color:red;'>❌ Please enter a valid email address.</span>";
-    return;
-  }
-
-  sendBtn.style.display = "none";
-  closeBtn.style.display = "none";
-
-  let seconds = 0;
-  responseDiv.innerHTML = "<span class='spinning-icon'></span>Connecting with Engg-Tech Team...<br><span id='timer'>Waiting: 0s</span>";
-  const timer = setInterval(() => {
-    seconds++;
-    const t = document.getElementById("timer");
-    if (t) t.innerText = "Waiting: " + seconds + "s";
-  }, 1000);
-
-  const formData = new FormData();
-  formData.append("name", name);
-  formData.append("email", email);
-  formData.append("message", message);
-  formData.append("honeypot", honeypot);
-  formData.append("captchaX", x);
-  formData.append("captchaY", y);
-  formData.append("captchaAnswer", answer);
 
   fetch("https://script.google.com/macros/s/AKfycbwkIbW2EzsoG54Adydc0UwnN34au15dm2vnn3Egfhrq69n8HiEdGUgIJQ0riPGLe5k/exec", {
     method: "POST",
-    body: formData
+    body: new FormData(Object.assign(document.createElement("form"), {
+      name: { value: name },
+      email: { value: email },
+      message: { value: message }
+    }))
   });
 
   localStorage.setItem(cooldownKey, Date.now().toString());
 
-  const delay = Math.floor(Math.random() * 6 + 5) * 1000;
+  responseDiv.innerHTML = "Connecting with Engg-Tech Team…";
+
   setTimeout(() => {
-    clearInterval(timer);
     responseDiv.innerHTML = `
       <p>🚧 All our team members are currently busy.</p>
-      <p>Message received! Our team will review your enquiry and follow up with you via email shortly.</p>
-      <p>Need urgent assistance? Email us directly at <a href="mailto:info@engg-tech.com"><strong>info@engg-tech.com</strong></a></p>`;
+      <p>Message received! We will reply by email.</p>
+      <p>Email: <a href="mailto:info@engg-tech.com"><strong>info@engg-tech.com</strong></a></p>`;
     checkCooldown();
-  }, delay);
+  }, Math.random() * 6000 + 5000);
 }
 
-(function() {
-  const h = new Date().getHours();
-  let g = "Hello";
-  if (h < 12) g = "Good morning";
-  else if (h < 18) g = "Good afternoon";
-  else g = "Good evening";
-  document.getElementById("greeting").textContent = g + "!";
-})();
-
-(function() {
-  const box = document.getElementById("chatBox");
-  let dragging = false, offsetX = 0, offsetY = 0;
-
-  function startDrag(x, y) {
-    const rect = box.getBoundingClientRect();
-    offsetX = x - rect.left;
-    offsetY = y - rect.top;
-    dragging = true;
-    box.style.position = "absolute";
-    box.style.margin = "0";
-    box.style.zIndex = "10001";
-  }
-
-  function move(x, y) {
-    if (dragging) {
-      box.style.left = (x - offsetX) + "px";
-      box.style.top = (y - offsetY) + "px";
-    }
-  }
-
-  box.addEventListener("mousedown", function(e) {
-    if (e.target.tagName.match(/INPUT|TEXTAREA|BUTTON|A/)) return;
-    startDrag(e.clientX, e.clientY);
-  });
-
-  document.addEventListener("mousemove", function(e) {
-    move(e.clientX, e.clientY);
-  });
-
-  document.addEventListener("mouseup", function() {
-    dragging = false;
-  });
-
-  box.addEventListener("touchstart", function(e) {
-    if (e.target.tagName.match(/INPUT|TEXTAREA|BUTTON|A/)) return;
-    const touch = e.touches[0];
-    startDrag(touch.clientX, touch.clientY);
-  }, { passive: true });
-
-  document.addEventListener("touchmove", function(e) {
-    if (!dragging) return;
-    const touch = e.touches[0];
-    move(touch.clientX, touch.clientY);
-  }, { passive: false });
-
-  document.addEventListener("touchend", function() {
-    dragging = false;
-  });
+(function(){
+  const h=new Date().getHours();
+  greeting.textContent=(h<12?"Good morning":h<18?"Good afternoon":"Good evening")+"!";
 })();
 </script>
-
-<!-- 💬 Chat Styles -->
-<style>
-.sticky-box {
-  position: fixed;
-  z-index: 9999;
-  background: #fff;
-  padding: 8px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-.sticky-livechat {
-  bottom: 20px;
-  right: 20px;
-  transform: none;
-  padding: 16px;
-  max-width: 200px;
-  font-family: sans-serif;
-  cursor: pointer;
-  animation: pulse 1.5s infinite;
-}
-
-.sticky-close {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #ff4d4f;
-  color: white;
-  font-weight: bold;
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  text-align: center;
-  line-height: 22px;
-  cursor: pointer;
-  font-size: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  animation: none !important;
-  border: none;
-}
-
-.sticky-livechat strong {
-  display: block;
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 4px;
-  color: #000;
-}
-
-.sticky-livechat span {
-  color: #333;
-  font-size: 0.9rem;
-}
-
-.spinning-icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 6px;
-  border: 3px solid #007bff;
-  border-radius: 50%;
-  border-top-color: transparent;
-  animation: spin 0.8s linear infinite;
-  vertical-align: middle;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,123,255,0.7); }
-  70% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(0,123,255,0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,123,255,0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 480px) {
-  .sticky-livechat {
-    max-width: 160px;
-    padding: 12px;
-  }
-}
-</style>
-
-<!-- Force execution when footer is loaded dynamically -->
-<img alt="" aria-hidden="true" style="display:none" 
- src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" 
- onload="var f=this.closest(&#39;footer&#39;)||document;f.querySelectorAll(&#39;script[data-exec]:not([data-ran])&#39;).forEach(function(s){var n=document.createElement(&#39;script&#39;);if(s.src){n.src=s.src;n.defer=!!s.defer;}else{n.text=s.textContent;}document.body.appendChild(n);s.setAttribute(&#39;data-ran&#39;,&#39;1&#39;);});" />
 <!-- Live Chat END -->
 
 </section>
