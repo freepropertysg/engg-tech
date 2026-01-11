@@ -26,8 +26,7 @@
 <!-- Content section -->
 <div style="padding-left: 1.5rem; padding-right: 1.5rem; box-sizing: border-box;">
 <section>
-<!-- 💬 Live Chat (Centered – No Close Button) -->
-
+<!-- Live Chat -->
 <noscript>
   <p style="text-align:center; font-size:0.95rem; padding:1rem;">
     Contact our support team at
@@ -36,59 +35,63 @@
   </p>
 </noscript>
 
-<div id="chatBox" role="dialog" aria-label="Live chat support"
+<div id="chatBox" role="region" aria-label="Live chat support"
 style="
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  z-index:10000;
+  position:relative;
+  margin:3rem auto;
   background:#fff;
   padding:20px 35px 20px 20px;
   border-radius:12px;
-  max-width:400px;
-  width:90%;
+  max-width:500px;
+  width:100%;
   font-family:sans-serif;
-  box-shadow:0 4px 20px rgba(0,0,0,0.2);
+  box-shadow:0 4px 20px rgba(0,0,0,0.12);
 ">
 
   <h3 id="greeting" style="margin-top:0;color:#d11a2a;">Hello!</h3>
-  <p>Welcome to our live chat!<br>Please enter your details and message below.</p>
+  <p>
+    Welcome to our live chat!<br>
+    Please enter your details and message below.
+  </p>
 
   <input type="text" id="chatHoneypot" style="display:none" autocomplete="off">
 
   <input type="text" id="chatName" placeholder="Your Name"
-    style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px;">
+    style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;border-radius:8px;">
 
   <input type="email" id="chatEmail" placeholder="Your Email"
-    style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #ccc;border-radius:6px;">
+    style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;border-radius:8px;">
 
   <textarea id="chatMessage" placeholder="Your Enquiry..."
-    style="width:100%;height:80px;padding:8px;border:1px solid #ccc;border-radius:6px;resize:none;"></textarea>
+    style="width:100%;height:100px;padding:10px;border:1px solid #ccc;border-radius:8px;resize:none;"></textarea>
 
-  <div style="margin-top:10px;">
-    <label>What is <span id="chatCaptchaQ">1 + 1</span>?</label>
+  <div style="margin-top:12px;">
+    <label style="font-weight:600;">
+      What is <span id="chatCaptchaQ">1 + 1</span>?
+    </label>
     <input type="number" id="chatCaptcha" required
-      style="width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:6px;">
+      style="width:100%;padding:10px;margin-top:6px;border:1px solid #ccc;border-radius:8px;">
   </div>
 
   <button id="chatSendBtn" onclick="sendChatMessage()"
     style="
-      margin-top:10px;
+      margin-top:14px;
       background:#007bff;
       color:#fff;
       border:none;
-      padding:10px 20px;
-      border-radius:6px;
+      padding:10px 24px;
+      border-radius:8px;
       font-size:1rem;
       cursor:pointer;
-    ">Send</button>
+    ">
+    Send
+  </button>
 
   <div id="cooldownMsg"
-    style="margin-top:10px;font-size:0.9rem;color:#c00;display:none;"></div>
+    style="margin-top:12px;font-size:0.9rem;color:#c00;display:none;"></div>
 
   <div id="chatResponse"
-    style="margin-top:15px;font-size:0.95rem;color:#333;"></div>
+    style="margin-top:16px;font-size:0.95rem;color:#333;"></div>
 
 </div>
 
@@ -147,17 +150,17 @@ function sendChatMessage() {
   if (honeypot !== "") return;
 
   if (Date.now() - chatFormStart < 3000) {
-    responseDiv.innerHTML = "⏱️ Please wait a moment before sending.";
+    responseDiv.textContent = "⏱️ Please wait a moment before sending.";
     return;
   }
 
   if (answer !== correctAnswer) {
-    responseDiv.innerHTML = "❌ Incorrect answer. Please try again.";
+    responseDiv.textContent = "❌ Incorrect answer. Please try again.";
     return;
   }
 
   if (!name || !email || !message) {
-    responseDiv.innerHTML = "Please fill in all fields.";
+    responseDiv.textContent = "Please fill in all fields.";
     return;
   }
 
@@ -172,7 +175,7 @@ function sendChatMessage() {
 
   localStorage.setItem(cooldownKey, Date.now().toString());
 
-  responseDiv.innerHTML = "Connecting with Engg-Tech Team…";
+  responseDiv.textContent = "Connecting with Engg-Tech Team…";
 
   setTimeout(() => {
     responseDiv.innerHTML = `
@@ -189,6 +192,7 @@ function sendChatMessage() {
     (h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening") + "!";
 })();
 </script>
+<!-- Live Chat END -->
 </section>
 </div>
 <!-- Content section END -->
