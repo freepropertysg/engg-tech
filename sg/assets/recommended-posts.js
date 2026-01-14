@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Only activate on Engg-Tech SG pages
-  if (window.location.hostname !== "engg-tech.com") return;
+  // Only activate on Engg-Tech SG pages (GitHub Pages safe)
+  if (!window.location.hostname.endsWith("engg-tech.com")) return;
   if (!window.location.pathname.startsWith("/sg")) return;
 
   /* ---------------------------------------
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 
   /* ---------------------------------------
-     3. FAQ HTML (SERVICE-BASED, SEO SAFE)
+     3. FAQ HTML (SERVICE-BASED)
   ---------------------------------------- */
   const faqHTML = `
     <section class="faq-section">
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ---------------------------------------
-     5. Generate Recommended Services (STATIC)
+     5. Generate Recommended Services
   ---------------------------------------- */
   const services = [
     { title: "Fire Protection Systems", url: "https://engg-tech.com/sg/services/#fire-protection" },
