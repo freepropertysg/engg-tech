@@ -2,13 +2,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ==============================
-     ENG-G-TECH BLOG PAGES ONLY
+     ENG-G-TECH BLOG + SG PAGES
   ============================== */
   const path = window.location.pathname;
-  if (!path.startsWith("/blog/")) return;
 
-  const blogBase = "/blog/";
-  const blogLinkMatch = "/blog/";
+  // Allow /blog/ and /sg/ pages only
+  if (!path.startsWith("/blog/") && !path.startsWith("/sg/")) return;
+
+  // Detect correct blog base
+  const isSG = path.startsWith("/sg/");
+  const blogBase = isSG ? "/sg/blog/" : "/blog/";
+  const blogLinkMatch = blogBase;
 
   /* ==============================
      INLINE CSS (SCOPED)
@@ -49,24 +53,17 @@ document.addEventListener("DOMContentLoaded", () => {
       margin-bottom:0.3rem;
     }
   `;
-  const styleTag = document.createElement("style");
-  styleTag.textContent = css;
-  document.head.appendChild(styleTag);
+  document.head.insertAdjacentHTML("beforeend", `<style>${css}</style>`);
 
   /* ==============================
-     RECOMMENDED ARTICLES HTML
+     CONTENT BLOCK HTML
   ============================== */
-  const recommendedHTML = `
+  const blockHTML = `
     <section class="recommended-posts-section">
       <h2>Recommended Articles</h2>
       <div id="recommendedContainer" class="recommended-posts-container"></div>
     </section>
-  `;
 
-  /* ==============================
-     FAQ – ENG-G-TECH (GLOBAL)
-  ============================== */
-  const faqHTML = `
     <section class="faq-section">
       <h2>Frequently Asked Questions</h2>
 
@@ -82,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="faq-item">
         <strong>Is Engg-Tech licensed and experienced?</strong>
-        <p>Engg-Tech works with experienced technicians and follows industry standards for safety, quality, and compliance.</p>
+        <p>Engg-Tech works with experienced technicians and follows industry standards for safety and quality.</p>
       </div>
 
       <div class="faq-item">
@@ -92,9 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="faq-item">
         <strong>How can I contact Engg-Tech?</strong>
-        <p>You can reach us via the contact page or email
-        <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
-        for enquiries and quotations.</p>
+        <p>Email <a href="mailto:info@engg-tech.com">info@engg-tech.com</a> for enquiries.</p>
       </div>
     </section>
   `;
@@ -102,26 +97,21 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ==============================
      INSERT BLOCK
   ============================== */
-  const blockHTML = recommendedHTML + faqHTML;
   const placeholder = document.getElementById("recommended-posts");
-
   if (placeholder) {
     placeholder.insertAdjacentHTML("beforeend", blockHTML);
   } else {
-    const footer = document.querySelector("#site-footer");
-    if (footer) {
-      footer.insertAdjacentHTML("beforebegin", blockHTML);
-    } else {
-      document.body.insertAdjacentHTML("beforeend", blockHTML);
-    }
+    document.body.insertAdjacentHTML("beforeend", blockHTML);
   }
 
   /* ==============================
      FETCH BLOG INDEX & BUILD LINKS
   ============================== */
-  (async function () {
+  (async () => {
     try {
       const res = await fetch(blogBase);
+      if (!res.ok) return;
+
       const html = await res.text();
       const doc = new DOMParser().parseFromString(html, "text/html");
 
@@ -132,13 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }))
         .filter(p => p.title.length > 0);
 
-      const currentURL = window.location.href.replace(/\/$/, "");
+      const currentURL = location.href.replace(/\/$/, "");
 
-      const unique = posts
-        .filter(p => p.url !== currentURL)
-        .filter((v, i, self) =>
-          i === self.findIndex(t => t.url === v.url)
-        );
+      const unique = posts.filter(
+        (p, i, self) =>
+          p.url !== currentURL &&
+          i === self.findIndex(t => t.url === p.url)
+      );
 
       const selected = unique
         .sort(() => Math.random() - 0.5)
@@ -147,10 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const box = document.getElementById("recommendedContainer");
       if (!box) return;
 
-      selected.forEach(post => {
+      selected.forEach(p => {
         box.insertAdjacentHTML(
           "beforeend",
-          `<a href="${post.url}" class="reco-post-link">${post.title}</a>`
+          `<a class="reco-post-link" href="${p.url}">${p.title}</a>`
         );
       });
 
