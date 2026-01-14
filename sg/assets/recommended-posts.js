@@ -71,39 +71,52 @@ document.addEventListener("DOMContentLoaded",()=>{
      4. FAQ HTML (GLOBAL, NEUTRAL)
   ---------------------------------------- */
   const faqHTML = `
-    <section class="faq-section">
-      <h2>Frequently Asked Questions</h2>
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
 
-      <div class="faq-item">
-        <strong>Is PostFre free to use?</strong>
-        <p>Yes. PostFre is completely free to use. You can post and browse classified listings without any platform fees or subscriptions.</p>
-      </div>
+    <div class="faq-item">
+      <strong>What services does Engg-Tech provide?</strong>
+      <p>
+        Engg-Tech provides fire protection system installation, fire alarm and sprinkler works,
+        M&E services, renovation support, electrical and plumbing works for residential,
+        commercial, and industrial projects.
+      </p>
+    </div>
 
-      <div class="faq-item">
-        <strong>Who can use PostFre?</strong>
-        <p>PostFre is open to everyone, including individuals, freelancers, small businesses, property owners, and service providers.</p>
-      </div>
+    <div class="faq-item">
+      <strong>Do you handle small or short-term projects?</strong>
+      <p>
+        Yes. Engg-Tech specialises in small to mid-scale projects that can be completed efficiently,
+        including short-term fire system installations and renovation-related works.
+      </p>
+    </div>
 
-      <div class="faq-item">
-        <strong>What types of listings are allowed on PostFre?</strong>
-        <p>PostFre allows a wide range of listings such as jobs, services, property, rentals, items for sale, and other general classified advertisements.</p>
-      </div>
+    <div class="faq-item">
+      <strong>Do your services include certification and paperwork?</strong>
+      <p>
+        Our scope focuses on installation and technical works. Certification or regulatory
+        submissions can be arranged separately if required, depending on project needs.
+      </p>
+    </div>
 
-      <div class="faq-item">
-        <strong>Do I need to create an account to post listings?</strong>
-        <p>No account registration is required. PostFre is designed to keep posting simple and accessible for all users.</p>
-      </div>
+    <div class="faq-item">
+      <strong>Who typically engages Engg-Tech?</strong>
+      <p>
+        We work with renovation contractors, interior designers, SMEs, facility teams,
+        property managers, and direct owners looking for reliable technical support.
+      </p>
+    </div>
 
-      <div class="faq-item">
-        <strong>How can I share feedback or suggestions?</strong>
-        <p>
-          You can email our team at
-          <a href="mailto:info@postfre.com">info@postfre.com</a>
-          so we can continue improving the platform.
-        </p>
-      </div>
-    </section>
-  `;
+    <div class="faq-item">
+      <strong>How can I request a quote or discuss a project?</strong>
+      <p>
+        You can contact our team via email at
+        <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
+        and we’ll get back to you to discuss your requirements.
+      </p>
+    </div>
+  </section>
+`;
 
   /* ---------------------------------------
      5. Insert Recommended + FAQ
