@@ -68,60 +68,9 @@ document.addEventListener("DOMContentLoaded",()=>{
   `;
 
   /* ---------------------------------------
-     4. FAQ HTML (GLOBAL, NEUTRAL)
+     4. Insert Recommended + FAQ
   ---------------------------------------- */
-  const faqHTML = `
-  <section class="faq-section">
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <strong>What services does Engg-Tech provide?</strong>
-      <p>
-        Engg-Tech provides fire protection system installation, fire alarm and sprinkler works,
-        M&E services, renovation support, electrical and plumbing works for residential,
-        commercial, and industrial projects.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <strong>Do you handle small or short-term projects?</strong>
-      <p>
-        Yes. Engg-Tech specialises in small to mid-scale projects that can be completed efficiently,
-        including short-term fire system installations and renovation-related works.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <strong>Do your services include certification and paperwork?</strong>
-      <p>
-        Our scope focuses on installation and technical works. Certification or regulatory
-        submissions can be arranged separately if required, depending on project needs.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <strong>Who typically engages Engg-Tech?</strong>
-      <p>
-        We work with renovation contractors, interior designers, SMEs, facility teams,
-        property managers, and direct owners looking for reliable technical support.
-      </p>
-    </div>
-
-    <div class="faq-item">
-      <strong>How can I request a quote or discuss a project?</strong>
-      <p>
-        You can contact our team via email at
-        <a href="mailto:info@engg-tech.com">info@engg-tech.com</a>
-        and we’ll get back to you to discuss your requirements.
-      </p>
-    </div>
-  </section>
-`;
-
-  /* ---------------------------------------
-     5. Insert Recommended + FAQ
-  ---------------------------------------- */
-  const blockHTML = recommendedHTML + faqHTML;
+  const blockHTML = recommendedHTML;
   const placeholder = document.getElementById("recommended-posts");
 
   if (placeholder) {
@@ -136,7 +85,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
 
   /* ---------------------------------------
-     6. Fetch blog index & generate posts
+     5. Fetch blog index & generate posts
   ---------------------------------------- */
   (async function(){
     try{
