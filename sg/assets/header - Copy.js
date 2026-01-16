@@ -39,25 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
      ACTIVE LINK LOGIC
   ---------------------------------------- */
   const links = document.querySelectorAll(".nav-link:not(.navbar-brand)");
-const current = window.location.pathname.replace(/\/$/, "") || "/";
+let current = window.location.pathname.replace(/\/$/, "") || "/";
 
 links.forEach(link => {
-  const href = new URL(link.href).pathname.replace(/\/$/, "") || "/";
+  let href = new URL(link.href).pathname.replace(/\/$/, "") || "/";
 
-  // HOME → only exact /sg
-  if (current === "/sg" && href === "/sg") {
+  // HOME fix: root "/" should activate /sg/
+  if (current === "/" && href === "/sg") {
     link.classList.add("active");
-    return;
   }
-
-  // BLOG → /sg/blog + ALL articles
-  if (href === "/sg/blog" && current.startsWith("/sg/blog")) {
-    link.classList.add("active");
-    return;
-  }
-
-  // Exact match (About, Services, Projects, Contact)
-  if (href === current) {
+  else if (href === current) {
     link.classList.add("active");
   }
 });
