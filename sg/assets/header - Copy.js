@@ -44,11 +44,8 @@ const current = window.location.pathname.replace(/\/$/, "") || "/";
 links.forEach(link => {
   const href = new URL(link.href).pathname.replace(/\/$/, "") || "/";
 
-  // HOME → root / OR /sg
-  if (
-    (current === "/" && href === "/sg") ||
-    (current === "/sg" && href === "/sg")
-  ) {
+  // HOME → only exact /sg
+  if (current === "/sg" && href === "/sg") {
     link.classList.add("active");
     return;
   }
@@ -59,7 +56,7 @@ links.forEach(link => {
     return;
   }
 
-  // Exact match
+  // Exact match (About, Services, Projects, Contact)
   if (href === current) {
     link.classList.add("active");
   }
