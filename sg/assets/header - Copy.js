@@ -35,34 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Insert navbar
   document.getElementById("site-nav").innerHTML = navHTML;
 
-  /* =============================
-   ACTIVE LINK (WORKING)
-============================= */
-const links = document.querySelectorAll("#navbarMenu .nav-link");
-const path = window.location.pathname.replace(/\/$/, "") || "/";
-
-links.forEach(a => {
-  const url = new URL(a.href);
-  const href = url.pathname.replace(/\/$/, "") || "/";
-
-  // HOME
-  if (path === "/" && href === "/") {
-    a.classList.add("active");
-    return;
-  }
-
-  // BLOG (index + articles)
-  if (href === "/sg/blog" && path.startsWith("/sg/blog")) {
-    a.classList.add("active");
-    return;
-  }
-
-  // Exact match
-  if (href === path) {
-    a.classList.add("active");
-  }
-});
-
   /* ---------------------------------------
      MOBILE MENU TOGGLE
   ---------------------------------------- */
