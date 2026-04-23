@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="footer-bottom">
 
     <p>
-      © 2015–<span id="copyYear"></span> Engg-Tech Construction Pte. Ltd. All rights reserved. |
+      © 2015–<span id="copyYear"></span> Engg-Tech Pte. Ltd. All rights reserved. |
       <a href="https://engg-tech.com/sg/privacy-policy/">Privacy Policy</a>
     </p>
 
