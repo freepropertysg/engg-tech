@@ -36,36 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("site-nav").innerHTML = navHTML;
 
   /* ---------------------------------------
-     ACTIVE LINK LOGIC
-  ---------------------------------------- */
-  const links = document.querySelectorAll(".nav-link:not(.navbar-brand)");
-const current = window.location.pathname.replace(/\/$/, "") || "/";
-
-links.forEach(link => {
-  const href = new URL(link.href).pathname.replace(/\/$/, "") || "/";
-
-  // HOME → root / OR /sg
-  if (
-    (current === "/" && href === "/sg") ||
-    (current === "/sg" && href === "/sg")
-  ) {
-    link.classList.add("active");
-    return;
-  }
-
-  // BLOG → /sg/blog + ALL articles
-  if (href === "/sg/blog" && current.startsWith("/sg/blog")) {
-    link.classList.add("active");
-    return;
-  }
-
-  // Exact match
-  if (href === current) {
-    link.classList.add("active");
-  }
-});
-
-  /* ---------------------------------------
      MOBILE MENU TOGGLE
   ---------------------------------------- */
   const toggle = document.querySelector(".menu-toggle");
