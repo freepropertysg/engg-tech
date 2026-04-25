@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navHTML = `
 <nav class="navbar-custom" aria-label="Main Navigation">
   <div class="navbar-container">
-    <a href="https://engg-tech.com/sg/" class="navbar-brand nav-link">
+    <a href="https://engg-tech.com/" class="navbar-brand nav-link">
       ENGG-TECH.COM
     </a>
 
@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <div class="navbar-nav">
       <ul id="navbarMenu">
-        <li><a class="nav-link" href="https://engg-tech.com/sg/">Home</a></li>
-        <li><a class="nav-link" href="https://engg-tech.com/sg/about-us/">About</a></li>
-        <li><a class="nav-link" href="https://engg-tech.com/sg/services/">Services</a></li>
-        <li><a class="nav-link" href="https://engg-tech.com/sg/projects/">Projects</a></li>
-        <li><a class="nav-link" href="https://engg-tech.com/sg/blog/">Blog</a></li>
-        <li><a class="nav-link" href="https://engg-tech.com/sg/contact-us/">Contact</a></li>
+        <li><a class="nav-link" href="https://engg-tech.com/">Home</a></li>
+        <li><a class="nav-link" href="https://engg-tech.com/about-us/">About</a></li>
+        <li><a class="nav-link" href="https://engg-tech.com/services/">Services</a></li>
+        <li><a class="nav-link" href="https://engg-tech.com/projects/">Projects</a></li>
+        <li><a class="nav-link" href="https://engg-tech.com/blog/">Blog</a></li>
+        <li><a class="nav-link" href="https://engg-tech.com/contact-us/">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -79,4 +79,3 @@ links.forEach(a => {
   }
 
 });
-
