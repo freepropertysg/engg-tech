@@ -5,8 +5,8 @@ const path = require("path");
 // CONFIG
 // ===============================
 const SITE_URL = "https://engg-tech.com";
-const BASE_PATH = "/sg";
-const BLOG_DIR = path.join(__dirname, "sg", "blog");
+const BASE_PATH = "";
+const BLOG_DIR = path.join(__dirname, "blog");
 
 // today as YYYY-MM-DD
 const today = new Date().toISOString().split("T")[0];
@@ -29,25 +29,24 @@ function urlBlock(loc, priority, changefreq) {
 // ===============================
 let urls = [];
 
-// === STATIC PAGES (SG) ===
+// === STATIC PAGES ===
 urls.push(
   urlBlock(`${SITE_URL}/`, "1.0", "weekly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/`, "1.0", "weekly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/about/`, "0.8", "monthly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/services/`, "0.9", "weekly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/projects/`, "0.8", "monthly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/blog/`, "0.7", "weekly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/contact-us/`, "0.6", "monthly"),
-  urlBlock(`${SITE_URL}${BASE_PATH}/privacy-policy/`, "0.3", "yearly"),
+  urlBlock(`${SITE_URL}/about/`, "0.8", "monthly"),
+  urlBlock(`${SITE_URL}/services/`, "0.9", "weekly"),
+  urlBlock(`${SITE_URL}/projects/`, "0.8", "monthly"),
+  urlBlock(`${SITE_URL}/blog/`, "0.7", "weekly"),
+  urlBlock(`${SITE_URL}/contact-us/`, "0.6", "monthly"),
+  urlBlock(`${SITE_URL}/privacy-policy/`, "0.3", "yearly"),
 );
 
-// === BLOG POSTS (SG) ===
+// === BLOG POSTS ===
 if (fs.existsSync(BLOG_DIR)) {
   fs.readdirSync(BLOG_DIR).forEach(file => {
     if (file.endsWith(".html") && file !== "index.html") {
       const slug = file.replace(".html", "");
       urls.push(
-        urlBlock(`${SITE_URL}${BASE_PATH}/blog/${slug}`, "0.6", "monthly")
+        urlBlock(`${SITE_URL}/blog/${slug}`, "0.6", "monthly")
       );
     }
   });
