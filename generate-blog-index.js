@@ -4,18 +4,18 @@ const path = require("path");
 // ===============================
 // CONFIG
 // ===============================
-const BLOG_DIR = path.join(__dirname, "sg", "blog");
+const BLOG_DIR = path.join(__dirname, "blog");
 const INDEX_FILE = path.join(BLOG_DIR, "index.html");
 
 // ===============================
 // SAFETY CHECKS
 // ===============================
 if (!fs.existsSync(BLOG_DIR)) {
-  throw new Error("sg/blog folder not found");
+  throw new Error("blog folder not found");
 }
 
 if (!fs.existsSync(INDEX_FILE)) {
-  throw new Error("sg/blog/index.html not found");
+  throw new Error("blog/index.html not found");
 }
 
 // ===============================
@@ -39,7 +39,7 @@ const list = posts.map(file => {
     .replace(/-/g, " ")
     .replace(/\b\w/g, c => c.toUpperCase());
 
-  return `  <li><a href="/sg/blog/${slug}">${title}</a></li>`;
+  return `  <li><a href="/blog/${slug}">${title}</a></li>`;
 }).join("\n");
 
 // ===============================
@@ -55,4 +55,4 @@ const updated = html.replace(
 // ===============================
 fs.writeFileSync(INDEX_FILE, updated, "utf8");
 
-console.log("✅ Blog index updated: /sg/blog/index.html");
+console.log("✅ Blog index updated: /blog/index.html");

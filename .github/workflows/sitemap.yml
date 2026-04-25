@@ -1,4 +1,4 @@
-name: Auto SG Sitemap + Blog Index (Engg-Tech)
+name: Auto Sitemap + Blog Index (Engg-Tech)
 
 on:
   push:
@@ -22,15 +22,15 @@ jobs:
           node-version: 18
 
       # -------------------------------
-      # Generate SG Blog Index
+      # Generate Blog Index
       # -------------------------------
-      - name: Generate SG Blog Index
+      - name: Generate Blog Index
         run: node generate-blog-index.js
 
       # -------------------------------
-      # Generate SG Sitemap
+      # Generate Sitemap
       # -------------------------------
-      - name: Generate SG Sitemap
+      - name: Generate Sitemap
         run: node generate-sitemap.js
 
       # -------------------------------
@@ -40,6 +40,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add sg/blog/index.html sitemap.xml
-          git diff --cached --quiet || git commit -m "Auto update SG blog index and sitemap"
+          git add blog/index.html sitemap.xml
+          git diff --cached --quiet || git commit -m "Auto update blog index and sitemap"
           git push
