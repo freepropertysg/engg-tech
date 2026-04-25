@@ -52,7 +52,7 @@ links.forEach(a => {
   }
 
   // BLOG (index + articles)
-  if (href === "/sg/blog" && path.startsWith("/sg/blog")) {
+  if (href === "/blog" && path.startsWith("/blog")) {
     a.classList.add("active");
     return;
   }
