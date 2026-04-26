@@ -40,12 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
 ============================= */
 const links = document.querySelectorAll("#navbarMenu .nav-link");
 let path = window.location.pathname.replace(/\/$/, "") || "/";
-if (path === "/index.html") path = "/";
+path = path.replace(/\.html$/, "");
+if (path === "/index") path = "/";
 
 links.forEach(a => {
   const url = new URL(a.href);
   let href = url.pathname.replace(/\/$/, "") || "/";
-if (href === "/index.html") href = "/";
+href = href.replace(/\.html$/, "");
+if (href === "/index") href = "/";
 
   // HOME
   if (path === "/" && href === "/") {
