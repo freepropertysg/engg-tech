@@ -1,20 +1,18 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
   /* =======================================
-     Blog pages only (COUNTRY REQUIRED)
-     Valid: /sg/blog/*
-     Invalid: /blog/*
+     Blog pages only (NO COUNTRY)
+     Valid: /blog/*
   ======================================== */
 
   const path = window.location.pathname;
-  const countryMatch = path.match(/^\/([a-z]{2})\/blog\//);
 
-  if (!countryMatch) return;
+  if (!path.startsWith("/blog/")) return;
 
   /* ---------------------------------------
-     1. Decide blog base URL
+     1. Blog base URL
   ---------------------------------------- */
-  const blogBase = `/${countryMatch[1]}/blog/`;
+  const blogBase = `/blog/`;
   const blogLinkMatch = blogBase;
 
   /* ---------------------------------------
@@ -68,19 +66,18 @@ document.addEventListener("DOMContentLoaded",()=>{
   `;
 
   /* ---------------------------------------
-     4. Insert Recommended + FAQ
+     4. Insert Recommended
   ---------------------------------------- */
-  const blockHTML = recommendedHTML;
   const placeholder = document.getElementById("recommended-posts");
 
   if (placeholder) {
-    placeholder.insertAdjacentHTML("beforeend", blockHTML);
+    placeholder.insertAdjacentHTML("beforeend", recommendedHTML);
   } else {
     const footer = document.querySelector("#site-footer");
     if (footer) {
-      footer.insertAdjacentHTML("beforebegin", blockHTML);
+      footer.insertAdjacentHTML("beforebegin", recommendedHTML);
     } else {
-      document.body.insertAdjacentHTML("beforeend", blockHTML);
+      document.body.insertAdjacentHTML("beforeend", recommendedHTML);
     }
   }
 
