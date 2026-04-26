@@ -39,11 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
    ACTIVE LINK (WORKING)
 ============================= */
 const links = document.querySelectorAll("#navbarMenu .nav-link");
-const path = window.location.pathname.replace(/\/$/, "") || "/";
+let path = window.location.pathname.replace(/\/$/, "") || "/";
+if (path === "/index.html") path = "/";
 
 links.forEach(a => {
   const url = new URL(a.href);
-  const href = url.pathname.replace(/\/$/, "") || "/";
+  let href = url.pathname.replace(/\/$/, "") || "/";
+if (href === "/index.html") href = "/";
 
   // HOME
   if (path === "/" && href === "/") {
